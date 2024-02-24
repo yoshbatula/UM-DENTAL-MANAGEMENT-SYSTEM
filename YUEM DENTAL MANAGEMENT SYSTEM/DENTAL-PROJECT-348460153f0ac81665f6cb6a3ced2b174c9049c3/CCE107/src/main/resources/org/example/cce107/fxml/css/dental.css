@@ -1,0 +1,25 @@
+.form1 {
+    -fx-background-color: #081F5C;
+}
+.add_form {
+    -fx-background-color: #D0E3FF;
+}
+
+.add_app {
+    -fx-background-color: #DBD3CA;
+}
+
+.doc_form {
+    -fx-backgroud-color: black;
+}
+
+.side_navigate {
+    -fx-arc-width: 144px;
+    -fx-arc-height: 26px;
+}
+
+.btn {
+    -fx-border-radius: 9px;
+    -fx-arc-height: 36px;
+    -fx-arc-width: 167px;
+}

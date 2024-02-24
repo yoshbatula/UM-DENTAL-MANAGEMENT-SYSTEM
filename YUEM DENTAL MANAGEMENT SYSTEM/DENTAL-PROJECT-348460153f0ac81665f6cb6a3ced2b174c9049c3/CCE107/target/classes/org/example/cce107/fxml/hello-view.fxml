@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cce107.HelloController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane layoutY="-2.0" prefHeight="441.0" prefWidth="323.0" styleClass="form" stylesheets="@css/LOGIN.css">
+               <children>
+                  <ImageView fitHeight="451.0" fitWidth="353.0" layoutX="6.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/421509594_1053495539070680_6653102900929360676_n%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="224.0" fitWidth="320.0" layoutX="3.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/LOGO%20(2).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="27.0" layoutY="300.0" text="UNIVERSITY OF MINDANAO" textFill="#fff6f6">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="76.0" layoutY="294.0" prefHeight="64.0" prefWidth="178.0" stylesheets="@css/LOGIN.css" text="Dental Clinic" textFill="#f7f3f3">
+                     <font>
+                        <Font name="High Spirited" size="44.0" />
+                     </font></Label>
+                  <Label layoutX="65.0" layoutY="382.0" stylesheets="@css/LOGIN.css" text="Healthy smile. brighter future." textFill="WHITE">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="323.0" prefHeight="440.0" prefWidth="312.0" styleClass="form2" stylesheets="@css/LOGIN.css">
+               <children>
+                  <ImageView fitHeight="442.0" fitWidth="326.0" layoutY="3.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/dental%20(1).jpg" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="user" layoutX="68.0" layoutY="190.0" prefHeight="30.0" prefWidth="196.0" promptText="Username" styleClass="user" stylesheets="@css/LOGIN.css">
+                     <font>
+                        <Font name="Palatino Linotype" size="12.0" />
+                     </font></TextField>
+                  <PasswordField fx:id="pass" layoutX="68.0" layoutY="249.0" prefHeight="30.0" prefWidth="196.0" promptText="Password" stylesheets="@css/LOGIN.css">
+                     <font>
+                        <Font name="Palatino Linotype" size="12.0" />
+                     </font></PasswordField>
+                  <Button fx:id="login" alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="311.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="84.0" styleClass="btn" stylesheets="@css/LOGIN.css" text="LOG IN" textFill="#f2ebeb">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="14.0" />
+                     </font></Button>
+                  <Text fill="#051643" layoutX="101.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login" text="LOG IN" wrappingWidth="112.77703857421875">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="12.0" />
+                     </font></Text>
+                  <ImageView fitHeight="96.0" fitWidth="36.0" layoutX="31.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/421599584_191937934002078_7896205160149747407_n-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/416242558_939807677538612_605885859248374215_n-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="label_wrong" layoutX="76.0" layoutY="367.0" prefHeight="18.0" prefWidth="196.0" textFill="RED">
+                     <font>
+                        <Font name="Palatino Linotype" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pass_need" layoutX="68.0" layoutY="279.0" prefHeight="18.0" prefWidth="196.0" textFill="RED">
+                     <font>
+                        <Font name="Palatino Linotype" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="userid" layoutX="68.0" layoutY="220.0" prefHeight="18.0" prefWidth="196.0" textFill="RED">
+                     <font>
+                        <Font name="Palatino Linotype" size="12.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="showpass" layoutX="68.0" layoutY="286.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="99.0" text="Show Password">
+                     <font>
+                        <Font name="Palatino Linotype" size="9.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
