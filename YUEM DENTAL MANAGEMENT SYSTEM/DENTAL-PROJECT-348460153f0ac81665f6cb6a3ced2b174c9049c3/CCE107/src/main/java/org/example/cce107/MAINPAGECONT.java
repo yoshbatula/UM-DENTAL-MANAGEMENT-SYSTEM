@@ -75,8 +75,6 @@ public class MAINPAGECONT {
     @FXML
     private TextField address_tf;
 
-
-
     public void switchForm(ActionEvent event) {
 
         if (event.getSource() == home_btn) {
