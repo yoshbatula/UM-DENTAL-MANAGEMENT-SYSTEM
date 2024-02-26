@@ -1,6 +1,9 @@
 package org.example.cce107;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -117,13 +120,45 @@ public class MAINPAGECONT {
             full_req.setText("This is required.");
             age_req.setText("This is required");
 
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Platform.runLater(() -> full_req.setText(""));
+                    Platform.runLater(() -> age_req.setText(""));
+                    timer.cancel();
+                }
+            }, 5000000);
+
+
+
         }  if (address_tf.getText().isEmpty() || email_tf.getText().isEmpty()) {
             address_req.setText("This is required");
             mail_req.setText("This is required");
 
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Platform.runLater(() -> address_req.setText(""));
+                    Platform.runLater(() -> mail_req.setText(""));
+                    timer.cancel();
+                }
+            }, 5000000);
+
         }  if (mobile_tf.getText().isEmpty() || gender_tf.getText().isEmpty()) {
             mobile_req.setText("This is required");
             gender_req.setText("This is required");
+
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Platform.runLater(() -> mobile_req.setText(""));
+                    Platform.runLater(() -> gender_req.setText(""));
+                    timer.cancel();
+                }
+            }, 5000000);
         }
     }
 
