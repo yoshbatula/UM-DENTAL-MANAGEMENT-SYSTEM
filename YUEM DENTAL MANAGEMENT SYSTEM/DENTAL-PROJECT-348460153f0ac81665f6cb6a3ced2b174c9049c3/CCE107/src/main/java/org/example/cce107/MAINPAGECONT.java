@@ -113,9 +113,7 @@ public class MAINPAGECONT {
 
     public void personalInfo(ActionEvent event) {
 
-        //if () {
 
-        //}
         if (full_tf.getText().isEmpty() || age_tf.getText().isEmpty()) {
             full_req.setText("This is required.");
             age_req.setText("This is required");
@@ -128,9 +126,7 @@ public class MAINPAGECONT {
                     Platform.runLater(() -> age_req.setText(""));
                     timer.cancel();
                 }
-            }, 5000000);
-
-
+            }, 3500);
 
         }  if (address_tf.getText().isEmpty() || email_tf.getText().isEmpty()) {
             address_req.setText("This is required");
@@ -144,11 +140,12 @@ public class MAINPAGECONT {
                     Platform.runLater(() -> mail_req.setText(""));
                     timer.cancel();
                 }
-            }, 5000000);
+            }, 3500);
 
         }  if (mobile_tf.getText().isEmpty() || gender_tf.getText().isEmpty()) {
             mobile_req.setText("This is required");
             gender_req.setText("This is required");
+
 
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
@@ -158,7 +155,7 @@ public class MAINPAGECONT {
                     Platform.runLater(() -> gender_req.setText(""));
                     timer.cancel();
                 }
-            }, 5000000);
+            }, 3500);
         }
     }
 

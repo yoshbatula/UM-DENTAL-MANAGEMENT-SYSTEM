@@ -49,12 +49,15 @@ public class HelloController {
         if  (pass.getText().isBlank()) {
 
             pass_need.setText("This is required.");
+            login.setStyle("-fx-border-color: red; -fx-border-radius: 9px");
+
 
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     Platform.runLater(() -> pass_need.setText(""));
+                    Platform.runLater(() -> login.setStyle("-fx-border-color: none"));
                     timer.cancel();
                 }
             }, 3500);
@@ -62,12 +65,14 @@ public class HelloController {
         } if  (user.getText().isBlank()) {
 
             userid.setText("This is required.");
+            login.setStyle("-fx-border-color: red; -fx-border-radius: 9px");
 
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     Platform.runLater(() -> userid.setText(""));
+                    Platform.runLater(() -> login.setStyle("-fx-border-color: none"));
                     timer.cancel();
                 }
             }, 3500);
@@ -91,12 +96,14 @@ public class HelloController {
         } else {
 
             label_wrong.setText("Incorrect username / password.");
+            login.setStyle("-fx-border-color: red; -fx-border-radius: 9px");
 
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     Platform.runLater(() -> label_wrong.setText(""));
+                    Platform.runLater(() -> login.setStyle("-fx-border-color: none"));
                     timer.cancel();
                 }
             }, 3500);
