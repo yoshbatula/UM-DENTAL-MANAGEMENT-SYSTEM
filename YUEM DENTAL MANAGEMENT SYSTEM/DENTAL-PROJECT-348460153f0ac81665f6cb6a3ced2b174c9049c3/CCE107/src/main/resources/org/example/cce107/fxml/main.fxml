@@ -103,11 +103,11 @@
                         <Image url="@images/bg_add.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="134.0" layoutY="48.0" text="Add Appointment" textFill="#081f5c">
+                  <Label layoutX="97.0" layoutY="37.0" text="Add Appointment" textFill="#081f5c">
                      <font>
-                        <Font name="Lighthouse Personal Use" size="37.0" />
+                        <Font name="Palatino Linotype" size="37.0" />
                      </font></Label>
-                  <Label layoutX="165.0" layoutY="94.0" prefHeight="23.0" prefWidth="166.0" text="HEALTHY SMILES, BRIGHTER FUTURE.">
+                  <Label layoutX="165.0" layoutY="94.0" prefHeight="23.0" prefWidth="196.0" text="HEALTHY SMILES, BRIGHTER FUTURE.">
                      <font>
                         <Font name="Bookish" size="14.0" />
                      </font></Label>
@@ -186,57 +186,72 @@
                         <Font name="Palatino Linotype" size="21.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="556.0" layoutY="235.0" prefHeight="38.0" prefWidth="597.0" />
+                  <TextField fx:id="full_tf" layoutX="556.0" layoutY="235.0" prefHeight="38.0" prefWidth="597.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="556.0" layoutY="194.0" text="Fullname:">
                      <font>
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="556.0" layoutY="278.0" text="This is required." textFill="RED">
+                  <Label fx:id="full_req" layoutX="556.0" layoutY="278.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
                      <font>
                         <Font name="Palatino Linotype" size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="556.0" layoutY="358.0" prefHeight="38.0" prefWidth="284.0" />
+                  <TextField fx:id="age_tf" layoutX="556.0" layoutY="358.0" prefHeight="38.0" prefWidth="284.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="556.0" layoutY="317.0" text="Age:">
                      <font>
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="556.0" layoutY="401.0" text="This is required." textFill="RED">
+                  <Label fx:id="age_req" layoutX="556.0" layoutY="401.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
                      <font>
                         <Font name="Palatino Linotype" size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="871.0" layoutY="358.0" prefHeight="38.0" prefWidth="284.0" />
+                  <TextField fx:id="gender_tf" layoutX="871.0" layoutY="358.0" prefHeight="38.0" prefWidth="284.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="871.0" layoutY="317.0" text="Gender:">
                      <font>
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="871.0" layoutY="401.0" text="This is required." textFill="RED">
+                  <Label fx:id="gender_req" layoutX="871.0" layoutY="401.0" prefHeight="22.0" prefWidth="115.0" textFill="RED">
                      <font>
                         <Font name="Palatino Linotype" size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="556.0" layoutY="484.0" prefHeight="38.0" prefWidth="284.0" />
+                  <TextField fx:id="mobile_tf" layoutX="556.0" layoutY="484.0" prefHeight="38.0" prefWidth="284.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="556.0" layoutY="443.0" text="Mobile Number:">
                      <font>
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="556.0" layoutY="527.0" text="This is required." textFill="RED">
+                  <Label fx:id="mobile_req" layoutX="556.0" layoutY="527.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
                      <font>
                         <Font name="Palatino Linotype" size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="871.0" layoutY="484.0" prefHeight="38.0" prefWidth="284.0" />
+                  <TextField fx:id="email_tf" layoutX="871.0" layoutY="484.0" prefHeight="38.0" prefWidth="284.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="871.0" layoutY="443.0" text="Email:">
                      <font>
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="871.0" layoutY="527.0" text="This is required." textFill="RED">
+                  <Label fx:id="mail_req" layoutX="871.0" layoutY="527.0" prefHeight="22.0" prefWidth="115.0" textFill="RED">
                      <font>
                         <Font name="Palatino Linotype" size="16.0" />
                      </font>
@@ -252,18 +267,21 @@
                         <Font name="Palatino Linotype" size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="556.0" layoutY="620.0" prefHeight="38.0" prefWidth="329.0" />
+                  <TextField fx:id="address_tf" layoutX="556.0" layoutY="620.0" prefHeight="38.0" prefWidth="329.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Label layoutX="556.0" layoutY="579.0" text="Address:">
                      <font>
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <Label layoutX="556.0" layoutY="663.0" text="This is required." textFill="RED">
+                  <Label fx:id="address_req" layoutX="556.0" layoutY="663.0" prefHeight="22.0" prefWidth="104.0" textFill="RED">
                      <font>
                         <Font name="Palatino Linotype" size="16.0" />
                      </font>
                   </Label>
-                  <Button layoutX="972.0" layoutY="613.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="166.0" style="-fx-background-color: #081F5C;" text="Submit" textFill="#e3ded3">
+                  <Button fx:id="submit" layoutX="972.0" layoutY="613.0" mnemonicParsing="false" onAction="#personalInfo" prefHeight="60.0" prefWidth="166.0" style="-fx-background-color: #081F5C;" text="Submit" textFill="#e3ded3">
                      <font>
                         <Font name="Palatino Linotype Bold" size="31.0" />
                      </font>

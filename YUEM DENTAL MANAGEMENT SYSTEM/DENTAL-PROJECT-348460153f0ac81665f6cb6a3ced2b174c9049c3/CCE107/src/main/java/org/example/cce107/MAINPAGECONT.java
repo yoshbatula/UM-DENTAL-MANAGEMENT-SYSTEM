@@ -33,6 +33,46 @@ public class MAINPAGECONT {
     @FXML
     private AnchorPane home_form;
 
+    @FXML
+    private Label full_req;
+
+    @FXML
+    private Label gender_req;
+
+    @FXML
+    private Label mobile_req;
+
+    @FXML
+    private Label mail_req;
+
+    @FXML
+    private Label age_req;
+
+    @FXML
+    private Label address_req;
+
+    @FXML
+    private Button submit;
+
+    @FXML
+    private TextField mobile_tf;
+
+    @FXML
+    private TextField gender_tf;
+
+    @FXML
+    private TextField full_tf;
+
+    @FXML
+    private TextField email_tf;
+
+    @FXML
+    private TextField age_tf;
+
+    @FXML
+    private TextField address_tf;
+
+
 
     public void switchForm(ActionEvent event) {
 
@@ -65,6 +105,25 @@ public class MAINPAGECONT {
             doc_form.setStyle("-fx-background-color:  #37A1C3");
             appoint_form.setStyle("-fx-background-color: transparent");
             home_form.setStyle("-fx-background-color: transparent");
+        }
+    }
+
+    public void personalInfo(ActionEvent event) {
+
+        //if () {
+
+        //}
+        if (full_tf.getText().isEmpty() || age_tf.getText().isEmpty()) {
+            full_req.setText("This is required.");
+            age_req.setText("This is required");
+
+        }  if (address_tf.getText().isEmpty() || email_tf.getText().isEmpty()) {
+            address_req.setText("This is required");
+            mail_req.setText("This is required");
+
+        }  if (mobile_tf.getText().isEmpty() || gender_tf.getText().isEmpty()) {
+            mobile_req.setText("This is required");
+            gender_req.setText("This is required");
         }
     }
 
