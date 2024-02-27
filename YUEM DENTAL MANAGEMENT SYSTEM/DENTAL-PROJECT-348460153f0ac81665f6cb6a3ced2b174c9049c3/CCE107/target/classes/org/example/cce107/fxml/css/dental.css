@@ -23,3 +23,18 @@
     -fx-arc-height: 36px;
     -fx-arc-width: 167px;
 }
+
+.selectbtn {
+    -fx-font-family: "Palatino Linotype";
+    -fx-font-size: 14;
+    -fx-background-color: #ece9e7;
+    -fx-border-color: #c5c5c5;
+    -fx-prompt-text-fill: black;
+}
+.selectbtn2 {
+    -fx-font-family: "Palatino Linotype";
+    -fx-font-size: 14;
+    -fx-prompt-text-fill: black;
+    -fx-background-color: #c5c5c5;
+
+}
