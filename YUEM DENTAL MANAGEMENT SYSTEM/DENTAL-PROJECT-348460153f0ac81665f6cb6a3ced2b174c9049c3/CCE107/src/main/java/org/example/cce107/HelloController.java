@@ -1,7 +1,9 @@
 package org.example.cce107;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
+import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -11,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -37,8 +40,7 @@ public class HelloController {
     @FXML
     private Label userid;
 
-    @FXML
-    private RadioButton showpass;
+
 
     public void login(ActionEvent event) {
         String username = "admin";

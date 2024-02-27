@@ -1,7 +1,9 @@
 package org.example.cce107;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.chrono.Chronology;
+import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -13,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -23,7 +26,7 @@ import java.sql.*;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 
-public class MAINPAGECONT {
+public class MAINPAGECONT implements Initializable {
 
     @FXML
     private Button appoint_btn;
@@ -90,6 +93,31 @@ public class MAINPAGECONT {
 
     @FXML
     private MenuButton tf_time;
+
+    @FXML
+    private ComboBox time;
+
+    @FXML
+    private ComboBox services;
+
+
+    @FXML
+    void select_services(ActionEvent event) {
+
+    }
+
+    @FXML
+    void select_time(ActionEvent event) {
+
+    }
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList <String> list = FXCollections.observableArrayList("8:00am - 9:00am","9:00am - 10:00am","10:00am - 11:00am","11:00am - 12:00am","1:00pm - 2:00pm","2:00pm - 3:00pm","3:00pm - 4:00pm","4:00pm  - 5:00pm");
+        time.setItems(list);
+
+        ObservableList <String> list1 = FXCollections.observableArrayList("Tooth Extractions","Teeth Whitening","Dental Sealants","Root Canal Therapy","Dentures","Teeth Cleanings","Dental Veneers","Invisalign","Cosmetic Fillings","Bridgework","Dental Crowns","Dental Bonding");
+        services.setItems(list1);
+    }
 
     private Connection conn = null;
     private Statement sts;
