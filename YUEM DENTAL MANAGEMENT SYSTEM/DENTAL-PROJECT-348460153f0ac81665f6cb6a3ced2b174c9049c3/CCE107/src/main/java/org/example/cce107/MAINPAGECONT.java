@@ -1,9 +1,15 @@
 package org.example.cce107;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.time.chrono.Chronology;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.application.Platform;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import java.sql.*;
 
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
@@ -75,6 +82,22 @@ public class MAINPAGECONT {
     @FXML
     private TextField address_tf;
 
+    @FXML
+    private DatePicker tf_date;
+
+    @FXML
+    private MenuButton tf_services;
+
+    @FXML
+    private MenuButton tf_time;
+
+    private Connection conn = null;
+    private Statement sts;
+    private PreparedStatement pts;
+    private ResultSet result;
+
+    private String sql = "SELECT * FROM addInfo";
+
     public void switchForm(ActionEvent event) {
 
         if (event.getSource() == home_btn) {
@@ -111,6 +134,50 @@ public class MAINPAGECONT {
 
     public void personalInfo(ActionEvent event) {
 
+        String fullname = full_tf.getText();
+        int age = Integer.parseInt(age_tf.getText());
+        String gender = gender_tf.getText();
+        String mobileno = mobile_tf.getText();
+        String email = email_tf.getText();
+        String address = address_tf.getText();
+        Chronology date = tf_date.getChronology();
+        String time = tf_time.getItems().toString();
+        String services = tf_services.getItems().toString();
+
+        try {
+            pts = conn.prepareStatement("INSERT INTO addInfo(Fullname, Age, Gender, MobileNo, Email, Address, Date, Time, Services) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            pts.setString(1, fullname);
+            pts.setInt(2, age);
+            pts.setString(3, gender);
+            pts.setString(4, mobileno);
+            pts.setString(5, email);
+            pts.setString(6, address);
+            pts.setDate(7, Date.valueOf(String.valueOf(date)));
+            pts.setString(8, time);
+            pts.setString(9, services);
+            pts = conn.prepareStatement(sql);
+            result = pts.executeQuery();
+
+
+            full_tf.setText("");
+            full_tf.setText("");
+            full_tf.setText("");
+            full_tf.setText("");
+            full_tf.setText("");
+            full_tf.setText("");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+
+            try {
+                if (pts != null) {
+                    pts.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         if (full_tf.getText().isEmpty() || age_tf.getText().isEmpty()) {
             full_req.setText("This is required.");

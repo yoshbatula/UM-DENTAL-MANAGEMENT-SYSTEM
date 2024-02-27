@@ -133,7 +133,7 @@
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <DatePicker layoutX="85.0" layoutY="415.0" prefHeight="36.0" prefWidth="349.0" promptText="Select Date" showWeekNumbers="true" />
+                  <DatePicker fx:id="tf_date" layoutX="85.0" layoutY="415.0" prefHeight="36.0" prefWidth="349.0" promptText="Select Date" showWeekNumbers="true" />
                   <Label layoutX="48.0" layoutY="480.0" text="Appointment time:">
                      <font>
                         <Font name="Palatino Linotype" size="26.0" />
@@ -144,7 +144,7 @@
                         <Font name="Palatino Linotype" size="26.0" />
                      </font>
                   </Label>
-                  <MenuButton layoutX="86.0" layoutY="530.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="349.0" text="Select Time" textFill="#606060">
+                  <MenuButton fx:id="tf_time" layoutX="86.0" layoutY="530.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="349.0" text="Select Time" textFill="#606060">
                     <items>
                       <MenuItem mnemonicParsing="false" text="8:00am -9:00am" />
                       <MenuItem mnemonicParsing="false" text="9:00am -10:00am" />
@@ -159,7 +159,7 @@
                         <Font name="Palatino" size="17.0" />
                      </font>
                   </MenuButton>
-                  <MenuButton layoutX="86.0" layoutY="653.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="349.0" text="Select Services" textFill="#606060">
+                  <MenuButton fx:id="tf_services" layoutX="86.0" layoutY="653.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="349.0" text="Select Services" textFill="#606060">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Pasta" />
                         <MenuItem mnemonicParsing="false" text="Braces" />

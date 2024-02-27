@@ -1,11 +1,12 @@
 package org.example.cce107;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
 
 public class dentalbase {
 
-    // This line of code is for connecting postgresql db
+    // This block of code is for connecting postgresql db
    public Connection dentaldb(String dbname, String user, String pass) {
 
         Connection con = null;
@@ -25,4 +26,5 @@ public class dentalbase {
         }
         return con;
    }
+
 }
