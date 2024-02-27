@@ -47,9 +47,8 @@ public class HelloController {
         Alert alert;
 
         if  (pass.getText().isBlank()) {
-
             pass_need.setText("This is required.");
-            login.setStyle("-fx-border-color: red; -fx-border-radius: 9px");
+            login.setStyle("-fx-border-color: red; -fx-border-radius: 7px; -fx-font-family: 'Palatino Linotype'");
 
 
             Timer timer = new Timer();
