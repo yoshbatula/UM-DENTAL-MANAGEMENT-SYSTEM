@@ -116,6 +116,8 @@ public class MAINPAGECONT implements Initializable {
 
         ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
         services.setItems(list1);
+
+        verifyTableSchema("addInfo");
     }
 
     private Connection conn;
@@ -130,7 +132,6 @@ public class MAINPAGECONT implements Initializable {
     public void dentaldb(String dbname, String user, String pass) {
         try {
             conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + dbname, user, pass);
-
             if (conn != null) {
                 System.out.print("Connection Established");
             } else {
@@ -138,6 +139,20 @@ public class MAINPAGECONT implements Initializable {
             }
         } catch (Exception e) {
             System.out.print(e);
+        }
+    }
+
+    private void verifyTableSchema(String tableName) {
+        String schemaQuery = "SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_name = ? AND table_schema = 'public'";
+        try (PreparedStatement pts = conn.prepareStatement(schemaQuery)) {
+            pts.setString(1, tableName);
+            ResultSet schemaResult = pts.executeQuery();
+            System.out.println("Table schema for " + tableName + ":");
+            while (schemaResult.next()) {
+                System.out.println("Column: " + schemaResult.getString(1) + ", Type: " + schemaResult.getString(2) + ", Nullable: " + schemaResult.getString(3));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error verifying table schema: " + e.getMessage());
         }
     }
 
@@ -176,7 +191,25 @@ public class MAINPAGECONT implements Initializable {
         }
     }
 
-    public void personalInfo(ActionEvent event) {
+    public void personalInfo(ActionEvent event) throws SQLException {
+
+        try (PreparedStatement pts = conn.prepareStatement("INSERT INTO addInfo (Fullname, Age, Gender, MobileNo, Email, Address, Date, Time, Services) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+            pts.setString(1, full_tf.getText());
+            pts.setInt(2, Integer.valueOf(age_tf.getText()));
+            pts.setString(3, gender_tf.getText());
+            pts.setString(4, mobile_tf.getText());
+            pts.setString(5, email_tf.getText());
+            pts.setString(6, address_tf.getText());
+            pts.setDate(7, Date.valueOf(tf_date.getValue()));
+            pts.setString(8, (String) time.getSelectionModel().getSelectedItem());
+            pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
+            pts.executeUpdate();
+
+            ClearForm();
+
+        } catch (SQLException e) {
+            System.err.println("Error inserting data: " + e.getMessage());
+        }
 
         if (full_tf.getText().isEmpty() || age_tf.getText().isEmpty()) {
             full_req.setText("This is required.");
@@ -223,26 +256,8 @@ public class MAINPAGECONT implements Initializable {
                 }
             }, 3500);
 
-        } else {
-
-            try (PreparedStatement pts = conn.prepareStatement("INSERT INTO addInfo(Fullname, Age, Gender, MobileNo, Email, Address, Date, Time, Services) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
-                pts.setString(1, full_tf.getText());
-                pts.setInt(2, Integer.valueOf(age_tf.getText()));
-                pts.setString(3, gender_tf.getText());
-                pts.setString(4, mobile_tf.getText());
-                pts.setString(5, email_tf.getText());
-                pts.setString(6, address_tf.getText());
-                pts.setDate(7, Date.valueOf(tf_date.getValue()));
-                pts.setString(8, (String) time.getSelectionModel().getSelectedItem());
-                pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
-                pts.executeUpdate();
-
-                ClearForm();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
+
     }
     public void ClearForm() {
         full_tf.setText("");
