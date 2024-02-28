@@ -129,6 +129,7 @@ public class MAINPAGECONT implements Initializable {
         dentaldb("postgres", "postgres", "admin");
     }
 
+    // In this block of code it's for connecting into jdbc.
     public void dentaldb(String dbname, String user, String pass) {
         try {
             conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + dbname, user, pass);
@@ -142,7 +143,9 @@ public class MAINPAGECONT implements Initializable {
         }
     }
 
+    // The verifyTableSchema methods it's use for verifying if your  schema and table is working.
     private void verifyTableSchema(String tableName) {
+
         String schemaQuery = "SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_name = ? AND table_schema = 'public'";
         try (PreparedStatement pts = conn.prepareStatement(schemaQuery)) {
             pts.setString(1, tableName);
@@ -240,6 +243,7 @@ public class MAINPAGECONT implements Initializable {
 
         } else {
 
+            // The preparedStatement is used for executing and in this block of codes we insert some data and execute it.
             try  {
                 pts = conn.prepareStatement("INSERT INTO \"addInfo\" (\"Fullname\", \"Age\", \"Gender\", \"MobileNo\", \"Email\", \"Address\", \"Date\", \"Time\", \"Services\")\n" +
                         "VALUES (?,?,?,?,?,?,?,?,?)");
@@ -264,6 +268,8 @@ public class MAINPAGECONT implements Initializable {
         }
 
     }
+
+    // The clearform method as you may know it's for clearing the textfield and combo box after the execution of preparedStatement.
     public void ClearForm() {
         full_tf.setText("");
         age_tf.setText("");
