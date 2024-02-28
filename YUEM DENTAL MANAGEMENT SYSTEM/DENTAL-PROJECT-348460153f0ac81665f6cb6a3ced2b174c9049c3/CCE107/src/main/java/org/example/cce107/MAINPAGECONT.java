@@ -100,7 +100,6 @@ public class MAINPAGECONT implements Initializable {
     @FXML
     private ComboBox services;
 
-
     @FXML
     void select_services(ActionEvent event) {
 
@@ -119,12 +118,29 @@ public class MAINPAGECONT implements Initializable {
         services.setItems(list1);
     }
 
-    private Connection conn = null;
+    private Connection conn;
     private Statement sts;
     private PreparedStatement pts;
     private ResultSet result;
 
-    private String sql = "SELECT * FROM addInfo";
+    public MAINPAGECONT() {
+        dentaldb("postgres", "postgres", "admin");
+    }
+
+    public void dentaldb(String dbname, String user, String pass) {
+        try {
+            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + dbname, user, pass);
+
+            if (conn != null) {
+                System.out.print("Connection Established");
+            } else {
+                System.out.print("Connection Failed");
+            }
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }
+
 
     public void switchForm(ActionEvent event) {
 
@@ -161,51 +177,6 @@ public class MAINPAGECONT implements Initializable {
     }
 
     public void personalInfo(ActionEvent event) {
-
-        String fullname = full_tf.getText();
-        int age = Integer.parseInt(age_tf.getText());
-        String gender = gender_tf.getText();
-        String mobileno = mobile_tf.getText();
-        String email = email_tf.getText();
-        String address = address_tf.getText();
-        Chronology date = tf_date.getChronology();
-        String time = tf_time.getItems().toString();
-        String services = tf_services.getItems().toString();
-
-        try {
-            pts = conn.prepareStatement("INSERT INTO addInfo(Fullname, Age, Gender, MobileNo, Email, Address, Date, Time, Services) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            pts.setString(1, fullname);
-            pts.setInt(2, age);
-            pts.setString(3, gender);
-            pts.setString(4, mobileno);
-            pts.setString(5, email);
-            pts.setString(6, address);
-            pts.setDate(7, Date.valueOf(String.valueOf(date)));
-            pts.setString(8, time);
-            pts.setString(9, services);
-            pts = conn.prepareStatement(sql);
-            result = pts.executeQuery();
-
-
-            full_tf.setText("");
-            full_tf.setText("");
-            full_tf.setText("");
-            full_tf.setText("");
-            full_tf.setText("");
-            full_tf.setText("");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-
-            try {
-                if (pts != null) {
-                    pts.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
 
         if (full_tf.getText().isEmpty() || age_tf.getText().isEmpty()) {
             full_req.setText("This is required.");
@@ -249,6 +220,47 @@ public class MAINPAGECONT implements Initializable {
                     timer.cancel();
                 }
             }, 3500);
+
+        } else {
+
+            String sql = "INSERT INTO addInfo(Fullname,Age,Gender,MobileNo,Email,Address,Date,Time,Services) VALUES(?,?,?,?,?,?,?,?,?)";
+
+            String fullname = full_tf.getText();
+            Integer age = Integer.valueOf(age_tf.getText());
+            String gender = gender_tf.getText();
+            String mobileno = mobile_tf.getText();
+            String email = email_tf.getText();
+            String address = address_tf.getText();
+            Date date = Date.valueOf(tf_date.getValue());
+            String time = tf_time.getItems().toString();
+            String services = tf_services.getItems().toString();
+            try {
+
+            pts = conn.prepareStatement(sql);
+            pts.setString(1, fullname);
+            pts.setInt(2, age);
+            pts.setString(3, gender);
+            pts.setString(4, mobileno);
+            pts.setString(5, email);
+            pts.setString(6, address);
+            pts.setDate(7, date);
+            pts.setString(8, time);
+            pts.setString(9, services);
+            pts.executeUpdate();
+
+            full_tf.setText("");
+            age_tf.setText("");
+            gender_tf.setText("");
+            mobile_tf.setText("");
+            email_tf.setText("");
+            address_tf.setText("");
+            tf_date.setValue(null);
+            tf_time.getItems().clear();
+            tf_services.getItems().clear();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         }
     }
 

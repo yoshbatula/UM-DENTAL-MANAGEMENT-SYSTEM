@@ -7,7 +7,7 @@ import java.io.IOException;
 public class MAINLUNCH extends Application {
 
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("fxml/main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MAINLUNCH.class.getResource("fxml/main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("YUEM DENTAL CLINIC MAIN PAGE!");
 
