@@ -111,10 +111,10 @@ public class MAINPAGECONT implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList <String> list = FXCollections.observableArrayList("8:00am - 9:00am","9:00am - 10:00am","10:00am - 11:00am","11:00am - 12:00am","1:00pm - 2:00pm","2:00pm - 3:00pm","3:00pm - 4:00pm","4:00pm  - 5:00pm");
+        ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
         time.setItems(list);
 
-        ObservableList <String> list1 = FXCollections.observableArrayList("Tooth Extractions","Teeth Whitening","Dental Sealants","Root Canal Therapy","Dentures","Teeth Cleanings","Dental Veneers","Invisalign","Cosmetic Fillings","Bridgework","Dental Crowns","Dental Bonding");
+        ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
         services.setItems(list1);
     }
 
@@ -192,7 +192,8 @@ public class MAINPAGECONT implements Initializable {
                 }
             }, 3500);
 
-        }  if (address_tf.getText().isEmpty() || email_tf.getText().isEmpty()) {
+        }
+        if (address_tf.getText().isEmpty() || email_tf.getText().isEmpty()) {
             address_req.setText("This is required");
             mail_req.setText("This is required");
 
@@ -206,7 +207,8 @@ public class MAINPAGECONT implements Initializable {
                 }
             }, 3500);
 
-        }  if (mobile_tf.getText().isEmpty() || gender_tf.getText().isEmpty()) {
+        }
+        if (mobile_tf.getText().isEmpty() || gender_tf.getText().isEmpty()) {
             mobile_req.setText("This is required");
             gender_req.setText("This is required");
 
@@ -223,45 +225,34 @@ public class MAINPAGECONT implements Initializable {
 
         } else {
 
-            String sql = "INSERT INTO addInfo(Fullname,Age,Gender,MobileNo,Email,Address,Date,Time,Services) VALUES(?,?,?,?,?,?,?,?,?)";
+            try (PreparedStatement pts = conn.prepareStatement("INSERT INTO addInfo(Fullname, Age, Gender, MobileNo, Email, Address, Date, Time, Services) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+                pts.setString(1, full_tf.getText());
+                pts.setInt(2, Integer.valueOf(age_tf.getText()));
+                pts.setString(3, gender_tf.getText());
+                pts.setString(4, mobile_tf.getText());
+                pts.setString(5, email_tf.getText());
+                pts.setString(6, address_tf.getText());
+                pts.setDate(7, Date.valueOf(tf_date.getValue()));
+                pts.setString(8, (String) time.getSelectionModel().getSelectedItem());
+                pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
+                pts.executeUpdate();
 
-            String fullname = full_tf.getText();
-            Integer age = Integer.valueOf(age_tf.getText());
-            String gender = gender_tf.getText();
-            String mobileno = mobile_tf.getText();
-            String email = email_tf.getText();
-            String address = address_tf.getText();
-            Date date = Date.valueOf(tf_date.getValue());
-            String time = tf_time.getItems().toString();
-            String services = tf_services.getItems().toString();
-            try {
+                ClearForm();
 
-            pts = conn.prepareStatement(sql);
-            pts.setString(1, fullname);
-            pts.setInt(2, age);
-            pts.setString(3, gender);
-            pts.setString(4, mobileno);
-            pts.setString(5, email);
-            pts.setString(6, address);
-            pts.setDate(7, date);
-            pts.setString(8, time);
-            pts.setString(9, services);
-            pts.executeUpdate();
-
-            full_tf.setText("");
-            age_tf.setText("");
-            gender_tf.setText("");
-            mobile_tf.setText("");
-            email_tf.setText("");
-            address_tf.setText("");
-            tf_date.setValue(null);
-            tf_time.getItems().clear();
-            tf_services.getItems().clear();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-
+    public void ClearForm() {
+        full_tf.setText("");
+        age_tf.setText("");
+        gender_tf.setText("");
+        mobile_tf.setText("");
+        email_tf.setText("");
+        address_tf.setText("");
+        tf_date.setValue(null);
+        time.getSelectionModel().clearSelection();
+        services.getSelectionModel().clearSelection();
+    }
 }
