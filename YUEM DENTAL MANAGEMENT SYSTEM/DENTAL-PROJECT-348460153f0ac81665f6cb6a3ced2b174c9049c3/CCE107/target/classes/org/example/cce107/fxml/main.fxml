@@ -95,28 +95,45 @@
          <children>
             <AnchorPane prefHeight="286.0" prefWidth="1235.0" style="-fx-background-color: #BAD6EB;">
                <children>
-                  <Label layoutX="159.0" layoutY="61.0" text="O U R   H O M E">
+                  <Label layoutX="299.0" layoutY="45.0" text="O U R   H O M E">
                      <font>
-                        <Font name="Lighthouse Personal Use" size="44.0" />
+                        <Font name="Lighthouse Personal Use" size="48.0" />
                      </font>
                   </Label>
-                  <Line endX="60.00006103515625" endY="7.62939453125E-6" layoutX="183.0" layoutY="153.0" startX="-91.39996337890625" />
-                  <Line endX="52.80010986328125" layoutX="410.0" layoutY="153.0" startX="-100.0" />
-                  <Label layoutX="182.0" layoutY="113.0" text="Healthy Smiles, Brighter Future">
+                  <Line endX="60.00006103515625" endY="7.62939453125E-6" layoutX="336.0" layoutY="143.0" startX="-91.39996337890625" />
+                  <Line endX="44.20001220703125" layoutX="581.0" layoutY="143.0" startX="-100.0" />
+                  <Label layoutX="333.0" layoutY="104.0" text="Healthy Smiles, Brighter Future">
                      <font>
                         <Font name="Bookish" size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="87.0" fitWidth="115.0" layoutX="228.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="96.0" fitWidth="116.0" layoutX="382.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../../../../../../../../../../Downloads/Untitled%20(2).png" />
                      </image>
                   </ImageView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#334eac" height="196.0" layoutX="939.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="140.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edeff2" height="181.0" layoutX="948.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="122.0" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="863.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../../../../../Downloads/Untitled%20(4).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="982.0" layoutY="72.0" text="0">
+                     <font>
+                        <Font name="Arial Bold" size="95.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="987.0" layoutY="192.0" text="P E O P L E">
+                     <font>
+                        <Font name="Bookish" size="12.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081f5c" height="534.0" layoutX="24.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="1173.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="488.0" layoutX="46.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="1130.0" />
-            <Rectangle arcHeight="75.0" arcWidth="75.0" fill="#7096d1" height="435.0" layoutX="80.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="1078.0" />
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f5f7fa" height="390.0" layoutX="100.0" layoutY="304.0" stroke="BLACK" strokeType="INSIDE" width="1038.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081f5c" height="528.0" layoutX="24.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="1186.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="482.0" layoutX="46.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="1141.0" />
+            <Rectangle arcHeight="75.0" arcWidth="75.0" fill="#7096d1" height="435.0" layoutX="80.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="1084.0" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f5f7fa" height="390.0" layoutX="100.0" layoutY="304.0" stroke="BLACK" strokeType="INSIDE" width="1049.0" />
             <Label layoutX="553.0" layoutY="326.0" text="A P P O I N T M E N T">
                <font>
                   <Font name="Bookish" size="25.0" />

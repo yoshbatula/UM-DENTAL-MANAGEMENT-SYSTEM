@@ -193,24 +193,6 @@ public class MAINPAGECONT implements Initializable {
 
     public void personalInfo(ActionEvent event) throws SQLException {
 
-        try (PreparedStatement pts = conn.prepareStatement("INSERT INTO addInfo (Fullname, Age, Gender, MobileNo, Email, Address, Date, Time, Services) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
-            pts.setString(1, full_tf.getText());
-            pts.setInt(2, Integer.valueOf(age_tf.getText()));
-            pts.setString(3, gender_tf.getText());
-            pts.setString(4, mobile_tf.getText());
-            pts.setString(5, email_tf.getText());
-            pts.setString(6, address_tf.getText());
-            pts.setDate(7, Date.valueOf(tf_date.getValue()));
-            pts.setString(8, (String) time.getSelectionModel().getSelectedItem());
-            pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
-            pts.executeUpdate();
-
-            ClearForm();
-
-        } catch (SQLException e) {
-            System.err.println("Error inserting data: " + e.getMessage());
-        }
-
         if (full_tf.getText().isEmpty() || age_tf.getText().isEmpty()) {
             full_req.setText("This is required.");
             age_req.setText("This is required");
@@ -256,6 +238,29 @@ public class MAINPAGECONT implements Initializable {
                 }
             }, 3500);
 
+        } else {
+
+            try  {
+                pts = conn.prepareStatement("INSERT INTO \"addInfo\" (\"Fullname\", \"Age\", \"Gender\", \"MobileNo\", \"Email\", \"Address\", \"Date\", \"Time\", \"Services\")\n" +
+                        "VALUES (?,?,?,?,?,?,?,?,?)");
+                pts.setString(1, full_tf.getText());
+                pts.setInt(2, Integer.valueOf(age_tf.getText()));
+                pts.setString(3, gender_tf.getText());
+                pts.setString(4, mobile_tf.getText());
+                pts.setString(5, email_tf.getText());
+                pts.setString(6, address_tf.getText());
+                pts.setDate(7, Date.valueOf(tf_date.getValue()));
+                pts.setString(8, (String) time.getSelectionModel().getSelectedItem());
+                pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
+                pts.executeUpdate();
+
+                ClearForm();
+
+                pts.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
     }
