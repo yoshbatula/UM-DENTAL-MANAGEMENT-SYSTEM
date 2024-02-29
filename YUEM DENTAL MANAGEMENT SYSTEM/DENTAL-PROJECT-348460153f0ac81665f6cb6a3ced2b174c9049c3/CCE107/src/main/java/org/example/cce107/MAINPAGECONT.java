@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.sql.*;
@@ -101,6 +102,27 @@ public class MAINPAGECONT implements Initializable {
     private ComboBox services;
 
     @FXML
+    private TableView<InfoData> appoint_table;
+    @FXML
+    private TableColumn<InfoData, Integer> age_table;
+    @FXML
+    private TableColumn<InfoData, Date> date_table;
+    @FXML
+    private TableColumn<InfoData, String> email_table;
+    @FXML
+    private TableColumn<InfoData, String> mobile_table;
+    @FXML
+    private TableColumn<InfoData, String> name_table;
+    @FXML
+    private TableColumn<InfoData, String> service_table;
+    @FXML
+    private TableColumn<InfoData, String> sex_table;
+    @FXML
+    private TableColumn<InfoData, String> time_table;
+
+
+
+    @FXML
     void select_services(ActionEvent event) {
 
     }
@@ -117,7 +139,11 @@ public class MAINPAGECONT implements Initializable {
         ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
         services.setItems(list1);
 
-        verifyTableSchema("addInfo");
+        try {
+            showTable();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private Connection conn;
@@ -128,6 +154,7 @@ public class MAINPAGECONT implements Initializable {
     public MAINPAGECONT() {
         dentaldb("postgres", "postgres", "admin");
     }
+
 
     // In this block of code it's for connecting into jdbc.
     public void dentaldb(String dbname, String user, String pass) {
@@ -142,23 +169,6 @@ public class MAINPAGECONT implements Initializable {
             System.out.print(e);
         }
     }
-
-    // The verifyTableSchema methods it's use for verifying if your  schema and table is working.
-    private void verifyTableSchema(String tableName) {
-
-        String schemaQuery = "SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_name = ? AND table_schema = 'public'";
-        try (PreparedStatement pts = conn.prepareStatement(schemaQuery)) {
-            pts.setString(1, tableName);
-            ResultSet schemaResult = pts.executeQuery();
-            System.out.println("Table schema for " + tableName + ":");
-            while (schemaResult.next()) {
-                System.out.println("Column: " + schemaResult.getString(1) + ", Type: " + schemaResult.getString(2) + ", Nullable: " + schemaResult.getString(3));
-            }
-        } catch (SQLException e) {
-            System.err.println("Error verifying table schema: " + e.getMessage());
-        }
-    }
-
 
     public void switchForm(ActionEvent event) {
 
@@ -247,6 +257,7 @@ public class MAINPAGECONT implements Initializable {
             try  {
                 pts = conn.prepareStatement("INSERT INTO \"addInfo\" (\"Fullname\", \"Age\", \"Gender\", \"MobileNo\", \"Email\", \"Address\", \"Date\", \"Time\", \"Services\")\n" +
                         "VALUES (?,?,?,?,?,?,?,?,?)");
+
                 pts.setString(1, full_tf.getText());
                 pts.setInt(2, Integer.valueOf(age_tf.getText()));
                 pts.setString(3, gender_tf.getText());
@@ -280,5 +291,49 @@ public class MAINPAGECONT implements Initializable {
         tf_date.setValue(null);
         time.getSelectionModel().clearSelection();
         services.getSelectionModel().clearSelection();
+    }
+
+    public ObservableList<InfoData> appoint_list() throws SQLException {
+        ObservableList<InfoData> list = FXCollections.observableArrayList();
+        pts = conn.prepareStatement("select *\n" +
+                "from \"addInfo\";");
+
+        try {
+            sts = conn.createStatement();
+            result = pts.executeQuery();
+
+            while (result.next()) {
+                InfoData data;
+                data = new InfoData(
+                        result.getString("fullname"),
+                        result.getInt("age"),
+                        result.getString("gender"),
+                        result.getString("mobileno"),
+                        result.getString("email"),
+                        result.getDate("date"),
+                        result.getString("time"),
+                        result.getString("services")
+                );
+                        list.add(data);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public void showTable() throws SQLException {
+        ObservableList<InfoData> list = appoint_list();
+
+        name_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("fullname"));
+        age_table.setCellValueFactory(new PropertyValueFactory<InfoData, Integer>("age"));
+        sex_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("gender"));
+        mobile_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("mobileno"));
+        email_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("email"));
+        date_table.setCellValueFactory(new PropertyValueFactory<InfoData, Date>("date"));
+        time_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("time"));
+        service_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("services"));
+
+        appoint_table.setItems(list);
     }
 }

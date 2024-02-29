@@ -146,16 +146,16 @@
                   <Image url="@images/Untitled%20(3).png" />
                </image>
             </ImageView>
-            <TableView layoutX="116.0" layoutY="416.0" prefHeight="244.0" prefWidth="1011.0">
+            <TableView fx:id="appoint_table" layoutX="116.0" layoutY="416.0" prefHeight="244.0" prefWidth="1011.0">
               <columns>
-                <TableColumn prefWidth="198.39993286132812" text="Name" />
-                <TableColumn prefWidth="45.60003662109375" text="Age" />
-                  <TableColumn prefWidth="65.60003662109375" text="Sex" />
-                  <TableColumn prefWidth="146.39996337890625" text="Mobile Number" />
-                  <TableColumn prefWidth="219.199951171875" text="Email" />
-                  <TableColumn prefWidth="72.0" text="Date" />
-                  <TableColumn prefWidth="72.800048828125" text="Time" />
-                  <TableColumn prefWidth="188.00004882812505" text="Services" />
+                <TableColumn fx:id="name_table" prefWidth="198.39993286132812" text="Name" />
+                <TableColumn fx:id="age_table" prefWidth="45.60003662109375" text="Age" />
+                  <TableColumn fx:id="sex_table" prefWidth="65.60003662109375" text="Sex" />
+                  <TableColumn fx:id="mobile_table" prefWidth="146.39996337890625" text="Mobile Number" />
+                  <TableColumn fx:id="email_table" prefWidth="219.199951171875" text="Email" />
+                  <TableColumn fx:id="date_table" prefWidth="72.0" text="Date" />
+                  <TableColumn fx:id="time_table" prefWidth="72.800048828125" text="Time" />
+                  <TableColumn fx:id="service_table" prefWidth="188.00004882812505" text="Services" />
               </columns>
             </TableView>
             <Button layoutX="1039.0" layoutY="666.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px;" styleClass="delete" stylesheets="@css/dental.css" text="🗑 DELETE">
