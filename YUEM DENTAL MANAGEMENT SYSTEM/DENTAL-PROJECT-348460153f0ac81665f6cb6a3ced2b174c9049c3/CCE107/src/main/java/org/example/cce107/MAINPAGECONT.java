@@ -293,6 +293,7 @@ public class MAINPAGECONT implements Initializable {
         services.getSelectionModel().clearSelection();
     }
 
+    // In here we use the preparedStatement to execute and select all the queries to print in the table view.
     public ObservableList<InfoData> appoint_list() throws SQLException {
         ObservableList<InfoData> list = FXCollections.observableArrayList();
         pts = conn.prepareStatement("select *\n" +
@@ -322,6 +323,7 @@ public class MAINPAGECONT implements Initializable {
         return list;
     }
 
+    // This method is for showing the data into the tableview
     public void showTable() throws SQLException {
         ObservableList<InfoData> list = appoint_list();
 
