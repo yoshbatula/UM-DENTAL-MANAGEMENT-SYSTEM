@@ -109,14 +109,14 @@
                   </Label>
                   <ImageView fitHeight="96.0" fitWidth="116.0" layoutX="382.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../../../../../../../Downloads/Untitled%20(2).png" />
+                        <Image url="@images/Untitled%20(2).png" />
                      </image>
                   </ImageView>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#334eac" height="196.0" layoutX="939.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="140.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edeff2" height="181.0" layoutX="948.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="122.0" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="863.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../../../../../../../Downloads/Untitled%20(4).png" />
+                        <Image url="@images/Untitled%20(4).png" />
                      </image>
                   </ImageView>
                   <Label layoutX="982.0" layoutY="72.0" text="0">
@@ -133,7 +133,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081f5c" height="528.0" layoutX="24.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="1186.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="482.0" layoutX="46.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="1141.0" />
             <Rectangle arcHeight="75.0" arcWidth="75.0" fill="#7096d1" height="435.0" layoutX="80.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="1084.0" />
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f5f7fa" height="390.0" layoutX="100.0" layoutY="304.0" stroke="BLACK" strokeType="INSIDE" width="1049.0" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f5f7fa" height="395.0" layoutX="101.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" width="1049.0" />
             <Label layoutX="553.0" layoutY="326.0" text="A P P O I N T M E N T">
                <font>
                   <Font name="Bookish" size="25.0" />
@@ -141,9 +141,9 @@
             </Label>
             <Line endX="100.0" layoutX="493.0" layoutY="368.0" startX="-12.5333251953125" />
             <Line endX="19.800048828125" layoutX="752.0" layoutY="368.0" startX="-85.79998779296875" />
-            <ImageView fitHeight="105.0" fitWidth="96.0" layoutX="580.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="105.0" fitWidth="96.0" layoutX="577.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../../../../../Downloads/Untitled%20(3).png" />
+                  <Image url="@images/Untitled%20(3).png" />
                </image>
             </ImageView>
             <TableView layoutX="116.0" layoutY="416.0" prefHeight="244.0" prefWidth="1011.0">
@@ -158,6 +158,11 @@
                   <TableColumn prefWidth="188.00004882812505" text="Services" />
               </columns>
             </TableView>
+            <Button layoutX="1039.0" layoutY="666.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px;" styleClass="delete" stylesheets="@css/dental.css" text="🗑 DELETE">
+               <font>
+                  <Font name="Bookish" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="appoint_form" layoutX="314.0" prefHeight="802.0" prefWidth="1235.0" style="-fx-background-color: #F6E9DA;" visible="false">
