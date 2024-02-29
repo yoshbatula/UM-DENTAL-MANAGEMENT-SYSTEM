@@ -119,6 +119,9 @@ public class MAINPAGECONT implements Initializable {
     private TableColumn<InfoData, String> sex_table;
     @FXML
     private TableColumn<InfoData, String> time_table;
+    @FXML
+    private Label total;
+
 
 
 
@@ -141,6 +144,7 @@ public class MAINPAGECONT implements Initializable {
 
         try {
             showTable();
+            appoint_table.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -272,6 +276,7 @@ public class MAINPAGECONT implements Initializable {
                 ClearForm();
 
                 pts.close();
+                showTable();
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -337,5 +342,7 @@ public class MAINPAGECONT implements Initializable {
         service_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("services"));
 
         appoint_table.setItems(list);
+        total.setText(String.valueOf(appoint_table.getItems().size()));
+
     }
 }

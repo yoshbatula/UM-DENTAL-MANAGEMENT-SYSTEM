@@ -119,7 +119,7 @@
                         <Image url="@images/Untitled%20(4).png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="982.0" layoutY="72.0" text="0">
+                  <Label fx:id="total" layoutX="982.0" layoutY="72.0">
                      <font>
                         <Font name="Arial Bold" size="95.0" />
                      </font>
