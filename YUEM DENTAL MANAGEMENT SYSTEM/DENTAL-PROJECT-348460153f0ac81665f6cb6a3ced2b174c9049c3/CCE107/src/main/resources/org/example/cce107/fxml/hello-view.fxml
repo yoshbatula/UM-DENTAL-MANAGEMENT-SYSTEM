@@ -36,9 +36,9 @@
                      <font>
                         <Font name="High Spirited" size="44.0" />
                      </font></Label>
-                  <Label layoutX="65.0" layoutY="382.0" stylesheets="@css/LOGIN.css" text="Healthy smile. brighter future." textFill="WHITE">
+                  <Label layoutX="69.0" layoutY="381.0" stylesheets="@css/LOGIN.css" text="Healthy smile. brighter future." textFill="WHITE">
                      <font>
-                        <Font name="Palatino Linotype Bold" size="14.0" />
+                        <Font name="Palatino Linotype" size="14.0" />
                      </font>
                   </Label>
                </children>
