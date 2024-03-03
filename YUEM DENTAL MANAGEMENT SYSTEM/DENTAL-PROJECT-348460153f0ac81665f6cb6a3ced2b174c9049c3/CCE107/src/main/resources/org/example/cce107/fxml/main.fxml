@@ -16,105 +16,100 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="1546.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cce107.MAINPAGECONT">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1267.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cce107.MAINPAGECONT">
    <children>
-      <VBox prefHeight="802.0" prefWidth="314.0">
+      <VBox prefHeight="644.0" prefWidth="314.0">
          <children>
-            <AnchorPane prefHeight="802.0" prefWidth="314.0">
+            <AnchorPane prefHeight="711.0" prefWidth="314.0">
                <children>
-                  <ImageView fitHeight="801.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="644.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/421509594_1053495539070680_6653102900929360676_n%20(1).png" />
+                        <Image url="@images/bg1.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="453.0" fitWidth="314.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/421509594_1053495539070680_6653102900929360676_n%20(1).png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="201.0" fitWidth="284.0" layoutX="10.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="168.0" fitWidth="246.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/LOGO%20(2).png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="21.0" layoutY="244.0" text="UNIVERSITY OF MINDANAO" textFill="WHITE">
+                  <Label layoutX="24.0" layoutY="209.0" prefHeight="22.0" prefWidth="237.0" text="UNIVERSITY OF MINDANAO" textFill="WHITE">
                      <font>
-                        <Font name="Palatino Linotype Bold" size="18.0" />
+                        <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="48.0" layoutY="237.0" text="Dental Clinic" textFill="WHITE">
+                  <Label layoutX="54.0" layoutY="210.0" prefHeight="38.0" prefWidth="198.0" text="Dental Clinic" textFill="WHITE">
                      <font>
-                        <Font name="High Spirited" size="51.0" />
+                        <Font name="High Spirited" size="44.0" />
                      </font>
                   </Label>
-                  <Label layoutX="47.0" layoutY="332.0" prefHeight="22.0" prefWidth="221.0" text="Healthy smiles, birghter future." textFill="WHITE">
+                  <Label layoutX="60.0" layoutY="285.0" prefHeight="22.0" prefWidth="167.0" text="Healthy smiles, brighter future." textFill="WHITE">
                      <font>
-                        <Font name="Palatino Linotype" size="15.0" />
+                        <Font name="Palatino Linotype" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="home_btn" layoutX="121.0" layoutY="416.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="HOME">
+                  <Button fx:id="home_btn" layoutX="111.0" layoutY="346.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="HOME">
                      <font>
                         <Font name="Palatino Linotype Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="appoint_btn" layoutX="69.0" layoutY="481.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="ADD APPOINTMENT">
+                  <Button fx:id="appoint_btn" layoutX="59.0" layoutY="401.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="ADD APPOINTMENT">
                      <font>
                         <Font name="Palatino Linotype Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="doctor_btn" layoutX="105.0" layoutY="545.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="DOCTORS">
+                  <Button fx:id="doctor_btn" layoutX="95.0" layoutY="456.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="DOCTORS">
                      <font>
                         <Font name="Palatino Linotype Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Label layoutX="68.0" layoutY="640.0" text="UM Matina Campus" textFill="WHITE">
+                  <Label layoutX="22.0" layoutY="533.0" text="UM Matina Campus, Matina, Davao City" textFill="WHITE">
                      <font>
-                        <Font name="Palatino Linotype" size="17.0" />
+                        <Font name="Palatino Linotype" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="666.0" text="Matina, Davao City" textFill="WHITE">
+                  <Label layoutX="75.0" layoutY="558.0" text="Tel No. (082) 286-2331" textFill="WHITE">
                      <font>
-                        <Font name="Palatino Linotype" size="17.0" />
+                        <Font name="Palatino Linotype" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="63.0" layoutY="692.0" text="Tel No. (082) 286-2331" textFill="WHITE">
+                  <Label layoutX="59.0" layoutY="583.0" text="Cellphone No. 09123456789" textFill="WHITE">
                      <font>
-                        <Font name="Palatino Linotype" size="17.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="42.0" layoutY="720.0" text="Cellphone No. 09123456789" textFill="WHITE">
-                     <font>
-                        <Font name="Palatino Linotype" size="17.0" />
+                        <Font name="Palatino Linotype" size="13.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
          </children>
       </VBox>
-      <AnchorPane fx:id="home_form" layoutX="314.0" prefHeight="802.0" prefWidth="1235.0">
+      <AnchorPane fx:id="home_form" layoutX="282.0" prefHeight="644.0" prefWidth="985.0">
          <children>
-            <AnchorPane prefHeight="286.0" prefWidth="1235.0" style="-fx-background-color: #BAD6EB;">
+            <AnchorPane layoutX="2.0" layoutY="-1.0" prefHeight="221.0" prefWidth="981.0" style="-fx-background-color: #BAD6EB;">
                <children>
-                  <Label layoutX="299.0" layoutY="45.0" text="O U R   H O M E">
+                  <ImageView fitHeight="239.0" fitWidth="1092.0" layoutX="-109.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/bgheader.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="230.0" layoutY="55.0" text="Home">
                      <font>
                         <Font name="Lighthouse Personal Use" size="48.0" />
                      </font>
                   </Label>
-                  <Line endX="60.00006103515625" endY="7.62939453125E-6" layoutX="336.0" layoutY="143.0" startX="-91.39996337890625" />
-                  <Line endX="44.20001220703125" layoutX="581.0" layoutY="143.0" startX="-100.0" />
-                  <Label layoutX="333.0" layoutY="104.0" text="Healthy Smiles, Brighter Future">
+                  <Line endX="60.00006103515625" endY="7.62939453125E-6" layoutX="177.0" layoutY="154.0" startX="-91.39996337890625" />
+                  <Line endX="44.20001220703125" layoutX="422.0" layoutY="154.0" startX="-100.0" />
+                  <Label layoutX="174.0" layoutY="115.0" text="Healthy Smiles, Brighter Future">
                      <font>
                         <Font name="Bookish" size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="96.0" fitWidth="116.0" layoutX="382.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="96.0" fitWidth="116.0" layoutX="223.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Untitled%20(2).png" />
                      </image>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#334eac" height="196.0" layoutX="939.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="140.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edeff2" height="181.0" layoutX="948.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="122.0" />
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="863.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#334eac" height="183.0" layoutX="811.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="135.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edeff2" height="159.0" layoutX="821.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
+                  <ImageView fitHeight="120.0" fitWidth="167.0" layoutX="720.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Untitled%20(4).png" />
                      </image>
@@ -124,235 +119,220 @@
                         <Font name="Arial Bold" size="95.0" />
                      </font>
                   </Label>
-                  <Label layoutX="987.0" layoutY="192.0" text="P E O P L E">
+                  <Label layoutX="856.0" layoutY="178.0" text="P E O P L E">
                      <font>
                         <Font name="Bookish" size="12.0" />
                      </font>
                   </Label>
                </children></AnchorPane>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081f5c" height="528.0" layoutX="24.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="1186.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="482.0" layoutX="46.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="1141.0" />
-            <Rectangle arcHeight="75.0" arcWidth="75.0" fill="#7096d1" height="435.0" layoutX="80.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="1084.0" />
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f5f7fa" height="395.0" layoutX="101.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" width="1049.0" />
-            <Label layoutX="553.0" layoutY="326.0" text="A P P O I N T M E N T">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081f5c" height="367.0" layoutX="12.0" layoutY="233.0" stroke="BLACK" strokeType="INSIDE" width="958.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="337.0" layoutX="24.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="933.0" />
+            <Rectangle arcHeight="75.0" arcWidth="75.0" fill="#7096d1" height="318.0" layoutX="32.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="910.0" />
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f5f7fa" height="286.0" layoutX="48.0" layoutY="275.0" stroke="BLACK" strokeType="INSIDE" width="879.0" />
+            <Label layoutX="462.0" layoutY="283.0" prefHeight="22.0" prefWidth="132.0" text="A P P O I N T M E N T">
                <font>
-                  <Font name="Bookish" size="25.0" />
+                  <Font name="Bookish" size="19.0" />
                </font>
             </Label>
-            <Line endX="100.0" layoutX="493.0" layoutY="368.0" startX="-12.5333251953125" />
-            <Line endX="19.800048828125" layoutX="752.0" layoutY="368.0" startX="-85.79998779296875" />
-            <ImageView fitHeight="105.0" fitWidth="96.0" layoutX="577.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+            <Line endX="100.0" layoutX="386.0" layoutY="325.0" startX="-12.5333251953125" />
+            <Line endX="19.800048828125" layoutX="645.0" layoutY="325.0" startX="-85.79998779296875" />
+            <ImageView fitHeight="105.0" fitWidth="96.0" layoutX="475.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Untitled%20(3).png" />
                </image>
             </ImageView>
-            <TableView fx:id="appoint_table" layoutX="116.0" layoutY="416.0" prefHeight="244.0" prefWidth="1011.0">
+            <TableView fx:id="appoint_table" layoutX="57.0" layoutY="358.0" prefHeight="183.0" prefWidth="859.0">
               <columns>
-                <TableColumn fx:id="name_table" prefWidth="198.39993286132812" text="Name" />
-                <TableColumn fx:id="age_table" prefWidth="45.60003662109375" text="Age" />
-                  <TableColumn fx:id="sex_table" prefWidth="65.60003662109375" text="Sex" />
-                  <TableColumn fx:id="mobile_table" prefWidth="146.39996337890625" text="Mobile Number" />
-                  <TableColumn fx:id="email_table" prefWidth="219.199951171875" text="Email" />
+                <TableColumn fx:id="name_table" prefWidth="170.0" text="Name" />
+                <TableColumn fx:id="age_table" prefWidth="35.0" text="Age" />
+                  <TableColumn fx:id="sex_table" prefWidth="49.0" text="Sex" />
+                  <TableColumn fx:id="mobile_table" prefWidth="118.0" text="Mobile Number" />
+                  <TableColumn fx:id="email_table" prefWidth="180.0" text="Email" />
                   <TableColumn fx:id="date_table" prefWidth="72.0" text="Date" />
-                  <TableColumn fx:id="time_table" prefWidth="72.800048828125" text="Time" />
-                  <TableColumn fx:id="service_table" prefWidth="188.00004882812505" text="Services" />
+                  <TableColumn fx:id="time_table" minWidth="8.0" prefWidth="111.0" text="Time" />
+                  <TableColumn fx:id="service_table" prefWidth="120.0" text="Services" />
               </columns>
             </TableView>
-            <Button layoutX="1039.0" layoutY="666.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px;" styleClass="delete" stylesheets="@css/dental.css" text="🗑 DELETE">
+            <Button layoutX="883.0" layoutY="607.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px; -fx-border-color: #051643;" styleClass="delete" stylesheets="@css/dental.css" text="🗑 DELETE">
                <font>
                   <Font name="Bookish" size="15.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="appoint_form" layoutX="314.0" prefHeight="802.0" prefWidth="1235.0" style="-fx-background-color: #F6E9DA;" visible="false">
+      <AnchorPane fx:id="appoint_form" layoutX="285.0" layoutY="-11.0" prefHeight="653.0" prefWidth="985.0" style="-fx-background-color: #F6E9DA;" visible="false">
          <children>
-            <AnchorPane layoutX="-3.0" prefHeight="802.0" prefWidth="1235.0">
+            <AnchorPane layoutX="-3.0" layoutY="11.0" prefHeight="644.0" prefWidth="987.0">
                <children>
-                  <ImageView fitHeight="809.0" fitWidth="1243.0" layoutX="2.0" layoutY="-4.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+                  <Rectangle arcHeight="4.0" arcWidth="5.0" fill="#e0e0e0" height="596.0" layoutX="459.0" layoutY="32.0" opacity="0.83" smooth="false" stroke="#e0e0e0" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" width="503.0" />
+                  <ImageView fitHeight="643.0" fitWidth="985.0" layoutX="1.0" layoutY="1.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/bg_add.png" />
+                        <Image url="@images/bg_Add1.PNG" />
                      </image>
                   </ImageView>
-                  <Label layoutX="97.0" layoutY="37.0" text="Add Appointment" textFill="#081f5c">
+                  <Label layoutX="76.0" layoutY="28.0" prefHeight="57.0" prefWidth="304.0" text="Add Appointment" textFill="#081f5c">
                      <font>
-                        <Font name="Palatino Linotype" size="37.0" />
+                        <Font name="Lighthouse Personal Use" size="48.0" />
                      </font></Label>
-                  <Label layoutX="165.0" layoutY="94.0" prefHeight="23.0" prefWidth="196.0" text="HEALTHY SMILES, BRIGHTER FUTURE.">
+                  <Label layoutX="120.0" layoutY="94.0" prefHeight="23.0" prefWidth="235.0" text="HEALTHY SMILES, BRIGHTER FUTURE.">
                      <font>
-                        <Font name="Bookish" size="14.0" />
+                        <Font name="Bookish" size="18.0" />
                      </font></Label>
-                  <Line endX="67.00003051757812" endY="-7.62939453125E-6" layoutX="159.0" layoutY="140.0" startX="-60.333282470703125" startY="-7.62939453125E-6" />
-                  <Line endX="67.00003051757812" endY="-7.62939453125E-6" layoutX="323.0" layoutY="139.0" startX="-60.333282470703125" startY="-7.62939453125E-6" />
-                  <Label layoutX="54.0" layoutY="181.0" prefHeight="46.0" prefWidth="395.0" text="APPOINTMENT DETAILS" textFill="#081f5c">
+                  <Line endX="53.00006103515625" layoutX="135.0" layoutY="138.0" startX="-91.333251953125" />
+                  <Line endX="113.33343505859375" layoutX="299.0" layoutY="137.0" startX="-42.99993896484375" />
+                  <Label layoutX="41.0" layoutY="168.0" prefHeight="46.0" prefWidth="284.0" text="APPOINTMENT DETAILS" textFill="#081f5c">
                      <font>
-                        <Font name="Palatino Linotype Bold" size="31.0" />
+                        <Font name="Palatino Linotype Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="37.0" layoutY="258.0" text="I am requesting for:">
+                  <Label layoutX="51.0" layoutY="223.0" text="I am requesting for:">
                      <font>
-                        <Font name="Palatino Linotype" size="24.0" />
+                        <Font name="Palatino Linotype" size="17.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="72.0" layoutY="310.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="378.0" text="Clinic Visit Appointment (visit to clinic)">
+                  <RadioButton layoutX="86.0" layoutY="264.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="314.0" text="Clinic Visit Appointment (visit to clinic)">
                      <font>
-                        <Font name="Palatino Linotype" size="18.0" />
+                        <Font name="Palatino Linotype" size="16.0" />
                      </font>
                   </RadioButton>
-                  <Label layoutX="48.0" layoutY="366.0" text="Appointment date:">
+                  <Label layoutX="62.0" layoutY="310.0" text="Appointment date:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="20.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="tf_date" layoutX="85.0" layoutY="415.0" prefHeight="36.0" prefWidth="349.0" promptText="Select Date" showWeekNumbers="true" styleClass="selectbtn2" stylesheets="@css/dental.css" />
-                  <Label layoutX="48.0" layoutY="480.0" text="Appointment time:">
+                  <DatePicker fx:id="tf_date" layoutX="88.0" layoutY="345.0" prefHeight="32.0" prefWidth="310.0" promptText="Select Date" showWeekNumbers="true" styleClass="selectbtn2" stylesheets="@css/dental.css" />
+                  <Label layoutX="59.0" layoutY="395.0" text="Appointment time:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="48.0" layoutY="602.0" text="Offered Services:">
+                  <Label layoutX="62.0" layoutY="480.0" text="Offered Services:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="20.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="751.0" fitWidth="730.0" layoutX="488.0" layoutY="37.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/bg2_add.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="620.0" layoutY="80.0" prefHeight="46.0" prefWidth="470.0" text="PERSONAL INFORMATION" textFill="#081f5c">
+                  <Label layoutX="550.0" layoutY="70.0" prefHeight="46.0" prefWidth="347.0" text="PERSONAL INFORMATION" textFill="#081f5c">
                      <font>
-                        <Font name="Palatino Linotype Bold" size="34.0" />
+                        <Font name="Palatino Linotype Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="687.0" layoutY="136.0" text="Please fill in all required information. ">
+                  <Label layoutX="603.0" layoutY="114.0" text="Please fill in all required information. ">
                      <font>
-                        <Font name="Palatino Linotype" size="21.0" />
+                        <Font name="Palatino Linotype" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="full_tf" layoutX="556.0" layoutY="235.0" prefHeight="38.0" prefWidth="597.0">
+                  <TextField fx:id="full_tf" layoutX="501.0" layoutY="202.0" prefHeight="34.0" prefWidth="414.0">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <Label layoutX="556.0" layoutY="194.0" text="Fullname:">
+                  <Label layoutX="501.0" layoutY="172.0" text="Fullname:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="full_req" layoutX="556.0" layoutY="278.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
+                  <Label fx:id="full_req" layoutX="503.0" layoutY="237.0" prefHeight="22.0" prefWidth="111.0" textFill="RED">
                      <font>
-                        <Font name="Palatino Linotype" size="16.0" />
+                        <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="age_tf" layoutX="556.0" layoutY="358.0" prefHeight="38.0" prefWidth="284.0">
+                  <TextField fx:id="age_tf" layoutX="500.0" layoutY="285.0" prefHeight="34.0" prefWidth="79.0">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <Label layoutX="556.0" layoutY="317.0" text="Age:">
+                  <Label layoutX="500.0" layoutY="255.0" text="Age:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="age_req" layoutX="556.0" layoutY="401.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
+                  <Label fx:id="age_req" layoutX="500.0" layoutY="320.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
                      <font>
-                        <Font name="Palatino Linotype" size="16.0" />
+                        <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="gender_tf" layoutX="871.0" layoutY="358.0" prefHeight="38.0" prefWidth="284.0">
+                  <TextField fx:id="gender_tf" layoutX="716.0" layoutY="284.0" prefHeight="34.0" prefWidth="198.0">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <Label layoutX="871.0" layoutY="317.0" text="Gender:">
+                  <Label layoutX="716.0" layoutY="255.0" text="Gender:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gender_req" layoutX="871.0" layoutY="401.0" prefHeight="22.0" prefWidth="115.0" textFill="RED">
+                  <Label fx:id="gender_req" layoutX="709.0" layoutY="320.0" prefHeight="22.0" prefWidth="115.0" textFill="RED">
                      <font>
-                        <Font name="Palatino Linotype" size="16.0" />
+                        <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="mobile_tf" layoutX="556.0" layoutY="484.0" prefHeight="38.0" prefWidth="284.0">
+                  <TextField fx:id="mobile_tf" layoutX="500.0" layoutY="377.0" prefHeight="34.0" prefWidth="189.0">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <Label layoutX="556.0" layoutY="443.0" text="Mobile Number:">
+                  <Label layoutX="500.0" layoutY="347.0" text="Mobile Number:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="mobile_req" layoutX="556.0" layoutY="527.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
+                  <Label fx:id="mobile_req" layoutX="501.0" layoutY="413.0" prefHeight="22.0" prefWidth="116.0" textFill="RED">
                      <font>
-                        <Font name="Palatino Linotype" size="16.0" />
+                        <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="email_tf" layoutX="871.0" layoutY="484.0" prefHeight="38.0" prefWidth="284.0">
+                  <TextField fx:id="email_tf" layoutX="716.0" layoutY="377.0" prefHeight="34.0" prefWidth="198.0">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <Label layoutX="871.0" layoutY="443.0" text="Email:">
+                  <Label layoutX="716.0" layoutY="347.0" text="Email:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="mail_req" layoutX="871.0" layoutY="527.0" prefHeight="22.0" prefWidth="115.0" textFill="RED">
+                  <Label fx:id="mail_req" layoutX="719.0" layoutY="413.0" prefHeight="22.0" prefWidth="115.0" textFill="RED" visible="false">
                      <font>
-                        <Font name="Palatino Linotype" size="16.0" />
+                        <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="713.0" layoutY="604.0" prefHeight="38.0" prefWidth="284.0" visible="false" />
-                  <Label layoutX="797.0" layoutY="562.0" text="Fullname:" visible="false">
-                     <font>
-                        <Font name="Palatino Linotype" size="26.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="794.0" layoutY="651.0" text="This is required." textFill="RED" visible="false">
-                     <font>
-                        <Font name="Palatino Linotype" size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="address_tf" layoutX="556.0" layoutY="620.0" prefHeight="38.0" prefWidth="329.0">
+                  <TextField fx:id="address_tf" layoutX="502.0" layoutY="476.0" prefHeight="34.0" prefWidth="261.0">
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <Label layoutX="556.0" layoutY="579.0" text="Address:">
+                  <Label layoutX="501.0" layoutY="445.0" text="Address:">
                      <font>
-                        <Font name="Palatino Linotype" size="26.0" />
+                        <Font name="Palatino Linotype" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="address_req" layoutX="556.0" layoutY="663.0" prefHeight="22.0" prefWidth="128.0" textFill="RED">
+                  <Label fx:id="address_req" layoutX="510.0" layoutY="512.0" prefHeight="22.0" prefWidth="128.0" textFill="RED">
                      <font>
-                        <Font name="Palatino Linotype" size="16.0" />
+                        <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <Button fx:id="submit" layoutX="972.0" layoutY="613.0" mnemonicParsing="false" onAction="#personalInfo" prefHeight="60.0" prefWidth="166.0" style="-fx-background-color: #081F5C;" text="Submit" textFill="#e3ded3">
+                  <Button fx:id="submit" layoutX="811.0" layoutY="472.0" mnemonicParsing="false" onAction="#personalInfo" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #081F5C;" text="Submit" textFill="#e3ded3">
                      <font>
-                        <Font name="Palatino Linotype Bold" size="31.0" />
+                        <Font name="Palatino Linotype Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="689.0" layoutY="732.0" text="UM Dental Clinic    umdentalclinic@gmail.com">
+                  <Label layoutX="608.0" layoutY="577.0" text="UM Dental Clinic    umdentalclinic@gmail.com">
                      <font>
-                        <Font name="Palatino Linotype" size="16.0" />
+                        <Font name="Palatino Linotype" size="11.0" />
                      </font>
                   </Label>
-                  <Line endX="-100.0" endY="27.3333740234375" layoutX="921.0" layoutY="729.0" startX="-100.0" />
-                  <ImageView fitHeight="24.0" fitWidth="34.0" layoutX="227.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                  <Line endX="-100.0" endY="17.0" layoutX="800.0" layoutY="578.0" startX="-100.0" startY="-3.0" />
+                  <ImageView fitHeight="32.0" fitWidth="43.0" layoutX="199.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/LOGO%20(2).png" />
                      </image>
                   </ImageView>
-                  <ComboBox fx:id="time" layoutX="88.0" layoutY="530.0" onAction="#select_time" prefHeight="38.0" prefWidth="349.0" promptText="Select Time" styleClass="selectbtn" stylesheets="@css/dental.css" />
-                  <ComboBox fx:id="services" layoutX="87.0" layoutY="651.0" onAction="#select_services" prefHeight="38.0" prefWidth="349.0" promptText="Select Service" styleClass="selectbtn" stylesheets="@css/dental.css" />
-                  <TextField layoutX="88.0" layoutY="703.0" prefHeight="38.0" prefWidth="349.0" promptText="Other Services:">
+                  <ComboBox fx:id="time" layoutX="88.0" layoutY="428.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Time" styleClass="selectbtn" stylesheets="@css/dental.css" />
+                  <ComboBox fx:id="services" layoutX="88.0" layoutY="512.0" onAction="#select_services" prefHeight="31.0" prefWidth="310.0" promptText="Select Service" styleClass="selectbtn" stylesheets="@css/dental.css" />
+                  <TextField layoutX="88.0" layoutY="554.0" prefHeight="31.0" prefWidth="310.0" promptText="Other Services:">
                      <font>
                         <Font name="Palatino Linotype" size="14.0" />
                      </font>
                   </TextField>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="doc_form" layoutX="314.0" prefHeight="802.0" prefWidth="1235.0" style="-fx-background-color: #37A1C3;" visible="false">
+      <AnchorPane fx:id="doc_form" layoutX="282.0" prefHeight="645.0" prefWidth="987.0" style="-fx-background-color: #37A1C3;" visible="false">
          <children>
-            <AnchorPane prefHeight="802.0" prefWidth="1235.0" />
+            <AnchorPane layoutX="-32.0" prefHeight="643.0" prefWidth="1017.0" />
          </children>
       </AnchorPane>
    </children>
