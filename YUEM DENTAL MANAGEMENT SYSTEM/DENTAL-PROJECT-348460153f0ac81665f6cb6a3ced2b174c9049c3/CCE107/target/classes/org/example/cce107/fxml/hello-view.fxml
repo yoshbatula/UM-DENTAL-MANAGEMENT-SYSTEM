@@ -62,14 +62,14 @@
                      <font>
                         <Font name="Palatino Linotype Bold" size="29.0" />
                      </font></Text>
-                  <ImageView fitHeight="96.0" fitWidth="36.0" layoutX="31.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="39.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/421599584_191937934002078_7896205160149747407_n-removebg-preview.png" />
+                        <Image url="@images/locked-padlock%20(1).png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="29.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="37.0" fitWidth="23.0" layoutX="38.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/416242558_939807677538612_605885859248374215_n-removebg-preview.png" />
+                        <Image url="@images/group%20(1).png" />
                      </image>
                   </ImageView>
                   <Label fx:id="label_wrong" layoutX="76.0" layoutY="367.0" prefHeight="18.0" prefWidth="196.0" textFill="RED">
