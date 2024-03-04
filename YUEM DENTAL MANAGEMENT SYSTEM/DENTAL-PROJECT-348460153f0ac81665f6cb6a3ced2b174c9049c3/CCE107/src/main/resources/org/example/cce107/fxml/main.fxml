@@ -115,7 +115,7 @@
                         <Image url="@images/Untitled%20(4).png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="total" layoutX="853.0" layoutY="64.0" prefHeight="108.0" prefWidth="96.0">
+                  <Label fx:id="total" layoutX="817.0" layoutY="41.0" prefHeight="131.0" prefWidth="132.0">
                      <font>
                         <Font name="Arial Bold" size="95.0" />
                      </font>
@@ -154,7 +154,7 @@
                   <TableColumn fx:id="service_table" prefWidth="120.0" text="Services" />
               </columns>
             </TableView>
-            <Button layoutX="883.0" layoutY="607.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px; -fx-border-color: #051643;" styleClass="delete" stylesheets="@css/dental.css" text="🗑 DELETE">
+            <Button layoutX="883.0" layoutY="607.0" mnemonicParsing="false" onAction="#deleteBTN" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px; -fx-border-color: #051643;" styleClass="delete" stylesheets="@css/dental.css" text="🗑 DELETE">
                <font>
                   <Font name="Bookish" size="15.0" />
                </font>

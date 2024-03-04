@@ -122,8 +122,8 @@ public class MAINPAGECONT implements Initializable {
     @FXML
     private Label total;
 
-
-
+    private ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
+    
 
     @FXML
     void select_services(ActionEvent event) {
@@ -132,15 +132,20 @@ public class MAINPAGECONT implements Initializable {
 
     @FXML
     void select_time(ActionEvent event) {
+        System.out.println(time.getSelectionModel().getSelectedItem());
 
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
         time.setItems(list);
 
         ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
         services.setItems(list1);
+
+        if(list.equals("8:00am - 9:00am")) {
+            ObservableList<String> list2 = FXCollections.observableArrayList( "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
+            time.setItems(list2);
+        }
 
         try {
             showTable();
@@ -175,12 +180,12 @@ public class MAINPAGECONT implements Initializable {
     }
 
     public void switchForm(ActionEvent event) {
-
         if (event.getSource() == home_btn) {
 
             home_form.setVisible(true);
             appoint_form.setVisible(false);
             doc_form.setVisible(false);
+            list.remove(time.getSelectionModel().getSelectedItem());
 
             home_form.setStyle("-fx-background-color: #BAD6EB");
             appoint_form.setStyle("-fx-background-color: transparent");
@@ -342,6 +347,14 @@ public class MAINPAGECONT implements Initializable {
         service_table.setCellValueFactory(new PropertyValueFactory<InfoData, String>("services"));
 
         appoint_table.setItems(list);
+        total.setText(String.valueOf(appoint_table.getItems().size()));
+
+
+    }
+
+    public void deleteBTN(ActionEvent e) {
+        System.out.println(appoint_table.getItems().indexOf(appoint_table.getSelectionModel().getSelectedItem()));
+        appoint_table.getItems().remove(appoint_table.getItems().indexOf(appoint_table.getSelectionModel().getSelectedItem()));
         total.setText(String.valueOf(appoint_table.getItems().size()));
 
     }
