@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.sql.*;
@@ -121,6 +122,40 @@ public class MAINPAGECONT implements Initializable {
     private TableColumn<InfoData, String> time_table;
     @FXML
     private Label total;
+
+    @FXML
+    private ImageView imageV;
+    @FXML
+    private Button b2;
+    Image swap2 = new Image(getClass().getResourceAsStream("ken.jpg"));
+    public void displayImage() {
+        imageV.setImage(swap2);
+    }
+    @FXML
+    private Button b3;
+    Image swap3 = new Image(getClass().getResourceAsStream("myel.jpg"));
+    public void displayImage() {
+        imageV.setImage(swap3);
+    }
+    @FXML
+    private Button b4;
+    Image swap4 = new Image(getClass().getResourceAsStream("mark.jpg"));
+    public void displayImage() {
+        imageV.setImage(swap4);
+    }
+    @FXML
+    private Button b5;
+    Image swap5 = new Image(getClass().getResourceAsStream("ryy.jpg"));
+    public void displayImage() {
+        imageV.setImage(swap5);
+    }
+    @FXML
+    private Button b1;
+    Image swap1 = new Image(getClass().getResourceAsStream("yosh.jpg"));
+    public void displayImage() {
+        imageV.setImage(swap1);
+    }
+
 
     private ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
     
