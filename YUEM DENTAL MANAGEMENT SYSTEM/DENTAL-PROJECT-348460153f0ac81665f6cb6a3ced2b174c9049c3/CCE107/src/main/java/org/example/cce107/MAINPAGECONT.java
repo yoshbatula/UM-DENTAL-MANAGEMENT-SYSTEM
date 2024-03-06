@@ -2,11 +2,13 @@ package org.example.cce107;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.chrono.Chronology;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import java.time.LocalDateTime;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.application.Platform;
@@ -127,39 +129,37 @@ public class MAINPAGECONT implements Initializable {
     private ImageView imageV;
     @FXML
     private Button b2;
-    Image swap2 = new Image(getClass().getResourceAsStream("ken.jpg"));
-    public void displayImage() {
-        imageV.setImage(swap2);
-    }
+    //Image swap2 = new Image(getClass().getResourceAsStream("ken.jpg"));
+    //public void displayImage() {
+        //imageV.setImage(swap2);
+    //}
     @FXML
     private Button b3;
-    Image swap3 = new Image(getClass().getResourceAsStream("myel.jpg"));
-    public void displayImage() {
-        imageV.setImage(swap3);
-    }
+    //Image swap3 = new Image(getClass().getResourceAsStream("myel.jpg"));
+    //public void displayImageq() {
+        //imageV.setImage(swap3);
+    //}
     @FXML
     private Button b4;
-    Image swap4 = new Image(getClass().getResourceAsStream("mark.jpg"));
-    public void displayImage() {
-        imageV.setImage(swap4);
-    }
+    //Image swap4 = new Image(getClass().getResourceAsStream("mark.jpg"));
+    //public void displayImage2() {
+        //imageV.setImage(swap4);
+    //}
     @FXML
     private Button b5;
-    Image swap5 = new Image(getClass().getResourceAsStream("ryy.jpg"));
-    public void displayImage() {
-        imageV.setImage(swap5);
-    }
+    //Image swap5 = new Image(getClass().getResourceAsStream("ryy.jpg"));
+    //public void displayImage3() {
+        //imageV.setImage(swap5);
+    //}
     @FXML
     private Button b1;
-    Image swap1 = new Image(getClass().getResourceAsStream("yosh.jpg"));
-    public void displayImage() {
-        imageV.setImage(swap1);
-    }
-
-
+    //Image swap1 = new Image(getClass().getResourceAsStream("yosh.jpg"));
+    //public void displayImage4() {
+        //imageV.setImage(swap1);
+    //}
     private ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
-    
 
+    ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
     @FXML
     void select_services(ActionEvent event) {
 
@@ -167,21 +167,53 @@ public class MAINPAGECONT implements Initializable {
 
     @FXML
     void select_time(ActionEvent event) {
-        System.out.println(time.getSelectionModel().getSelectedItem());
 
+        LocalDate selectedDate = tf_date.getValue();
+        if (selectedDate != null) {
+            time.setItems(getAvailableTimes(selectedDate));
+        } else {
+            time.setItems(list);
+        }
     }
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        time.setItems(list);
-
-        ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
-        services.setItems(list1);
-
-        if(list.equals("8:00am - 9:00am")) {
-            ObservableList<String> list2 = FXCollections.observableArrayList( "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
-            time.setItems(list2);
+    private ObservableList<String> getAvailableTimes(LocalDate selectedDate) {
+        ObservableList<String> availableTimes = FXCollections.observableArrayList();
+        ObservableList<InfoData> appointments;
+        try {
+            appointments = appoint_list();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
+        if (appointments != null) {
+            for (String timeOption : list) {
+                boolean isTimeAvailable = true;
+                if (selectedDate != null) {
+                    for (InfoData appointment : appointments) {
+                        if (appointment.getDate() != null && appointment.getDate().toLocalDate().equals(selectedDate) && appointment.getTime().equals(timeOption)) {
+                            isTimeAvailable = false;
+                            break;
+                        }
+                    }
+                    if (isTimeAvailable) {
+                        availableTimes.add(timeOption);
+                    }
+                }
+            }
+        }
+
+        return availableTimes;
+    }
+
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        LocalDate date = LocalDate.now();
+        time.setItems(getAvailableTimes(date));
+        services.setItems(list1);
+
+        if (date.equals(true)) {
+            
+        }
         try {
             showTable();
             appoint_table.refresh();
@@ -387,10 +419,22 @@ public class MAINPAGECONT implements Initializable {
 
     }
 
-    public void deleteBTN(ActionEvent e) {
-        System.out.println(appoint_table.getItems().indexOf(appoint_table.getSelectionModel().getSelectedItem()));
-        appoint_table.getItems().remove(appoint_table.getItems().indexOf(appoint_table.getSelectionModel().getSelectedItem()));
-        total.setText(String.valueOf(appoint_table.getItems().size()));
+    public void deleteBTN(ActionEvent e) throws SQLException {
 
+        String selectedFullname = appoint_table.getSelectionModel().getSelectedItem().getFullname();
+
+        try {
+            pts = conn.prepareStatement("DELETE FROM \"addInfo\" WHERE \"Fullname\" = ?");
+            pts.setString(1, selectedFullname);
+
+            appoint_table.getItems().remove(appoint_table.getSelectionModel().getSelectedItem());
+            total.setText(String.valueOf(appoint_table.getItems().size()));
+            pts.executeUpdate();
+
+            showTable();
+        }catch (SQLException event) {
+            event.printStackTrace();
+        }
     }
+
 }

@@ -81,7 +81,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <AnchorPane fx:id="home_form" layoutX="282.0" prefHeight="644.0" prefWidth="985.0" visible="false">
+      <AnchorPane fx:id="home_form" layoutX="282.0" prefHeight="644.0" prefWidth="985.0">
          <children>
             <Rectangle fill="WHITE" height="418.0" layoutX="2.0" layoutY="226.0" stroke="WHITE" strokeType="INSIDE" width="983.0" />
             <AnchorPane layoutX="2.0" layoutY="-1.0" prefHeight="234.0" prefWidth="983.0" style="-fx-background-color: #BAD6EB;">
@@ -115,7 +115,7 @@
                         <Image url="@images/Untitled%20(4).png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="total" layoutX="817.0" layoutY="41.0" prefHeight="131.0" prefWidth="132.0">
+                  <Label fx:id="total" layoutX="825.0" layoutY="38.0" prefHeight="138.0" prefWidth="107.0">
                      <font>
                         <Font name="Arial Bold" size="95.0" />
                      </font>
@@ -331,7 +331,7 @@
                   </TextField>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="doc_form" layoutX="282.0" prefHeight="645.0" prefWidth="987.0" style="-fx-background-color: #37A1C3;">
+      <AnchorPane fx:id="doc_form" layoutX="282.0" prefHeight="645.0" prefWidth="987.0" style="-fx-background-color: #37A1C3;" visible="false">
          <children>
             <AnchorPane layoutX="-32.0" prefHeight="643.0" prefWidth="1017.0">
                <children>
@@ -341,26 +341,26 @@
                         <Image url="@images/yosh.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="b1" blendMode="LIGHTEN" layoutX="385.0" layoutY="552.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="42.0" prefWidth="80.0" text="1" textFill="#091f5b">
+                  <Button fx:id="b1" blendMode="LIGHTEN" layoutX="385.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="1" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font></Button>
-                  <Button fx:id="b2" layoutX="465.0" layoutY="552.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="42.0" prefWidth="80.0" text="2" textFill="#091f5b">
+                  <Button fx:id="b2" layoutX="465.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="2" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="b3" blendMode="LIGHTEN" layoutX="545.0" layoutY="552.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="42.0" prefWidth="80.0" text="3" textFill="#091f5b">
+                  <Button fx:id="b3" blendMode="LIGHTEN" layoutX="545.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="3" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="b4" blendMode="LIGHTEN" layoutX="625.0" layoutY="552.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="42.0" prefWidth="80.0" text="4" textFill="#091f5b">
+                  <Button fx:id="b4" blendMode="LIGHTEN" layoutX="625.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="4" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="b5" blendMode="LIGHTEN" layoutX="705.0" layoutY="552.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="42.0" prefWidth="80.0" text="5" textFill="#091f5b">
+                  <Button fx:id="b5" blendMode="LIGHTEN" layoutX="705.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="5" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>

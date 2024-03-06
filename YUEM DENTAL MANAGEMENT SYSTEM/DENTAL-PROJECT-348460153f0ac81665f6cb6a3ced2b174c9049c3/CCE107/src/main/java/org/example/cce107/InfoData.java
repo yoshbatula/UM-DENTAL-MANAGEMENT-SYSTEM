@@ -27,7 +27,6 @@ public class InfoData {
         this.services = services;
     }
 
-
     public String getFullname() {
        return fullname;
    }
