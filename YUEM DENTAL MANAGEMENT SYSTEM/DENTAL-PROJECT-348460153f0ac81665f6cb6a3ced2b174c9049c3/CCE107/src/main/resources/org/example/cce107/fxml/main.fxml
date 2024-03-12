@@ -12,6 +12,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -81,7 +84,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <AnchorPane fx:id="home_form" layoutX="282.0" prefHeight="644.0" prefWidth="985.0">
+      <AnchorPane fx:id="home_form" layoutX="282.0" prefHeight="644.0" prefWidth="985.0" visible="false">
          <children>
             <Rectangle fill="WHITE" height="418.0" layoutX="2.0" layoutY="226.0" stroke="WHITE" strokeType="INSIDE" width="983.0" />
             <AnchorPane layoutX="2.0" layoutY="-1.0" prefHeight="234.0" prefWidth="983.0" style="-fx-background-color: #BAD6EB;">
@@ -115,7 +118,7 @@
                         <Image url="@images/Untitled%20(4).png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="total" layoutX="825.0" layoutY="38.0" prefHeight="138.0" prefWidth="107.0">
+                  <Label fx:id="total" alignment="CENTER" contentDisplay="CENTER" layoutX="804.0" layoutY="35.0" prefHeight="159.0" prefWidth="145.0">
                      <font>
                         <Font name="Arial Bold" size="95.0" />
                      </font>
@@ -161,7 +164,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="appoint_form" layoutX="285.0" layoutY="-11.0" prefHeight="653.0" prefWidth="985.0" style="-fx-background-color: #F6E9DA;" visible="false">
+      <AnchorPane fx:id="appoint_form" layoutX="285.0" layoutY="-11.0" prefHeight="653.0" prefWidth="985.0" style="-fx-background-color: #F6E9DA;">
          <children>
             <AnchorPane layoutX="-3.0" layoutY="11.0" prefHeight="644.0" prefWidth="987.0">
                <children>
@@ -201,7 +204,7 @@
                         <Font name="Palatino Linotype" size="20.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="tf_date" layoutX="88.0" layoutY="345.0" prefHeight="32.0" prefWidth="310.0" promptText="Select Date" showWeekNumbers="true" styleClass="selectbtn2" stylesheets="@css/dental.css" />
+                  <DatePicker fx:id="tf_date" layoutX="88.0" layoutY="345.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Date" showWeekNumbers="true" styleClass="selectbtn2" stylesheets="@css/dental.css" />
                   <Label layoutX="59.0" layoutY="395.0" text="Appointment time:">
                      <font>
                         <Font name="Palatino Linotype" size="20.0" />
@@ -230,6 +233,22 @@
                      <font>
                         <Font name="Palatino Linotype" size="19.0" />
                      </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.38823530077934265" green="0.3019607961177826" blue="0.3019607961177826" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Label>
                   <Label fx:id="full_req" layoutX="503.0" layoutY="237.0" prefHeight="22.0" prefWidth="111.0" textFill="RED">
                      <font>
@@ -324,11 +343,6 @@
                   </ImageView>
                   <ComboBox fx:id="time" layoutX="88.0" layoutY="428.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Time" styleClass="selectbtn" stylesheets="@css/dental.css" />
                   <ComboBox fx:id="services" layoutX="88.0" layoutY="512.0" onAction="#select_services" prefHeight="31.0" prefWidth="310.0" promptText="Select Service" styleClass="selectbtn" stylesheets="@css/dental.css" />
-                  <TextField layoutX="88.0" layoutY="554.0" prefHeight="31.0" prefWidth="310.0" promptText="Other Services:">
-                     <font>
-                        <Font name="Palatino Linotype" size="14.0" />
-                     </font>
-                  </TextField>
                </children></AnchorPane>
          </children></AnchorPane>
       <AnchorPane fx:id="doc_form" layoutX="282.0" prefHeight="645.0" prefWidth="987.0" style="-fx-background-color: #37A1C3;" visible="false">
@@ -338,29 +352,29 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#37a1c2" height="645.0" layoutX="32.0" stroke="#37a1c2" strokeType="INSIDE" width="985.0" />
                   <ImageView fx:id="imageV" fitHeight="645.0" fitWidth="987.0" layoutX="32.0" layoutY="-2.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/yosh.jpg" />
+                        <Image url="@images/yosh.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="b1" blendMode="LIGHTEN" layoutX="385.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="1" textFill="#091f5b">
+                  <Button fx:id="b1" blendMode="LIGHTEN" layoutX="385.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="42.0" prefWidth="80.0" text="1" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font></Button>
-                  <Button fx:id="b2" layoutX="465.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="2" textFill="#091f5b">
+                  <Button fx:id="b2" layoutX="465.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="42.0" prefWidth="80.0" text="2" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="b3" blendMode="LIGHTEN" layoutX="545.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="3" textFill="#091f5b">
+                  <Button fx:id="b3" blendMode="LIGHTEN" layoutX="545.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="42.0" prefWidth="80.0" text="3" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="b4" blendMode="LIGHTEN" layoutX="625.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="4" textFill="#091f5b">
+                  <Button fx:id="b4" blendMode="LIGHTEN" layoutX="625.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="42.0" prefWidth="80.0" text="4" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="b5" blendMode="LIGHTEN" layoutX="705.0" layoutY="552.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="80.0" text="5" textFill="#091f5b">
+                  <Button fx:id="b5" blendMode="LIGHTEN" layoutX="705.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="42.0" prefWidth="80.0" text="5" textFill="#091f5b">
                      <font>
                         <Font name="Palatino Linotype Bold" size="16.0" />
                      </font>

@@ -10,7 +10,7 @@ public class MAINLAUNCH extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MAINLAUNCH.class.getResource("fxml/main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("YUEM DENTAL CLINIC MAIN PAGE!");
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 

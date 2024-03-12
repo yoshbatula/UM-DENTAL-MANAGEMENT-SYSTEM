@@ -1,13 +1,13 @@
 package org.example.cce107;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.chrono.Chronology;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.time.LocalDateTime;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -99,7 +99,7 @@ public class MAINPAGECONT implements Initializable {
     private MenuButton tf_time;
 
     @FXML
-    private ComboBox time;
+    private ComboBox<String> time;
 
     @FXML
     private ComboBox services;
@@ -129,91 +129,67 @@ public class MAINPAGECONT implements Initializable {
     private ImageView imageV;
     @FXML
     private Button b2;
-    //Image swap2 = new Image(getClass().getResourceAsStream("ken.jpg"));
-    //public void displayImage() {
-        //imageV.setImage(swap2);
-    //}
     @FXML
     private Button b3;
-    //Image swap3 = new Image(getClass().getResourceAsStream("myel.jpg"));
-    //public void displayImageq() {
-        //imageV.setImage(swap3);
-    //}
     @FXML
     private Button b4;
-    //Image swap4 = new Image(getClass().getResourceAsStream("mark.jpg"));
-    //public void displayImage2() {
-        //imageV.setImage(swap4);
-    //}
     @FXML
     private Button b5;
-    //Image swap5 = new Image(getClass().getResourceAsStream("ryy.jpg"));
-    //public void displayImage3() {
-        //imageV.setImage(swap5);
-    //}
     @FXML
     private Button b1;
-    //Image swap1 = new Image(getClass().getResourceAsStream("yosh.jpg"));
-    //public void displayImage4() {
-        //imageV.setImage(swap1);
-    //}
+
+    @FXML
+    private TextField otherservice;
+
+
+
     private ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
 
-    ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
+    private ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
     @FXML
     void select_services(ActionEvent event) {
 
     }
 
     @FXML
-    void select_time(ActionEvent event) {
+    void select_time(ActionEvent event) throws SQLException {
 
         LocalDate selectedDate = tf_date.getValue();
+
         if (selectedDate != null) {
-            time.setItems(getAvailableTimes(selectedDate));
+            String selectedTime = (String) time.getSelectionModel().getSelectedItem();
+
+
+            try {
+                if (isTimeSlotUnavailable(selectedDate, selectedTime)) {
+
+                    list.remove(selectedTime);
+                    time.setItems(list);
+
+                } else if (!list.contains(selectedTime)) {
+
+                    list.add(selectedTime);
+                    time.setItems(list);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         } else {
+
             time.setItems(list);
         }
     }
 
-    private ObservableList<String> getAvailableTimes(LocalDate selectedDate) {
-        ObservableList<String> availableTimes = FXCollections.observableArrayList();
-        ObservableList<InfoData> appointments;
-        try {
-            appointments = appoint_list();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-        if (appointments != null) {
-            for (String timeOption : list) {
-                boolean isTimeAvailable = true;
-                if (selectedDate != null) {
-                    for (InfoData appointment : appointments) {
-                        if (appointment.getDate() != null && appointment.getDate().toLocalDate().equals(selectedDate) && appointment.getTime().equals(timeOption)) {
-                            isTimeAvailable = false;
-                            break;
-                        }
-                    }
-                    if (isTimeAvailable) {
-                        availableTimes.add(timeOption);
-                    }
-                }
-            }
-        }
-
-        return availableTimes;
-    }
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        LocalDate date = LocalDate.now();
-        time.setItems(getAvailableTimes(date));
+        time.setItems(list);
         services.setItems(list1);
+        alert = new Alert(Alert.AlertType.INFORMATION);
 
-        if (date.equals(true)) {
-            
-        }
+
+
         try {
             showTable();
             appoint_table.refresh();
@@ -222,10 +198,15 @@ public class MAINPAGECONT implements Initializable {
         }
     }
 
+    private void updateTimeComboBox() {
+        time.setItems(list);
+    }
     private Connection conn;
     private Statement sts;
     private PreparedStatement pts;
     private ResultSet result;
+
+    private Alert alert;
 
     public MAINPAGECONT() {
         dentaldb("postgres", "postgres", "admin");
@@ -278,58 +259,62 @@ public class MAINPAGECONT implements Initializable {
             appoint_form.setStyle("-fx-background-color: transparent");
             home_form.setStyle("-fx-background-color: transparent");
         }
+
+        if (event.getSource() == b1) {
+            Image swap1 = new Image(getClass().getResourceAsStream("/org/example/cce107/fxml/images/yosh.png"));
+            imageV.setImage(swap1);
+        }
+        else if (event.getSource() == b2) {
+            Image swap2 = new Image(getClass().getResourceAsStream("/org/example/cce107/fxml/images/myel.png"));
+            imageV.setImage(swap2);
+        } else if (event.getSource() == b3) {
+            Image swap3 = new Image(getClass().getResourceAsStream("/org/example/cce107/fxml/images/mark.png"));
+            imageV.setImage(swap3);
+        } else if (event.getSource() == b4) {
+            Image swap4 = new Image(getClass().getResourceAsStream("/org/example/cce107/fxml/images/ken.png"));
+            imageV.setImage(swap4);
+        } else if (event.getSource() == b5) {
+            Image swap5 = new Image(getClass().getResourceAsStream("/org/example/cce107/fxml/images/ryy.png"));
+            imageV.setImage(swap5);
+        }
     }
 
     public void personalInfo(ActionEvent event) throws SQLException {
+
+
+        LocalDate selectedDate = tf_date.getValue();
+
+        //if (selectedDate == null) {
+            //alert.setAlertType(Alert.AlertType.CONFIRMATION);
+            //alert.setTitle("Error");
+            //alert.setHeaderText("Invalid Date");
+            //alert.setContentText("Please select a date for the appointment.");
+            //alert.showAndWait();
+            //return;
+        //}
 
         if (full_tf.getText().isEmpty() || age_tf.getText().isEmpty()) {
             full_req.setText("This is required.");
             age_req.setText("This is required");
 
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(() -> full_req.setText(""));
-                    Platform.runLater(() -> age_req.setText(""));
-                    timer.cancel();
-                }
-            }, 3500);
+            submit.setStyle("-fx-border-color: red; -fx-background-color: #081F5C; -fx-text-fill: #e3ded3");
 
         }
         if (address_tf.getText().isEmpty() || email_tf.getText().isEmpty()) {
             address_req.setText("This is required");
             mail_req.setText("This is required");
 
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(() -> address_req.setText(""));
-                    Platform.runLater(() -> mail_req.setText(""));
-                    timer.cancel();
-                }
-            }, 3500);
-
+            submit.setStyle("-fx-border-color: red; -fx-background-color: #081F5C; -fx-text-fill: #e3ded3");
         }
         if (mobile_tf.getText().isEmpty() || gender_tf.getText().isEmpty()) {
             mobile_req.setText("This is required");
             gender_req.setText("This is required");
 
-
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Platform.runLater(() -> mobile_req.setText(""));
-                    Platform.runLater(() -> gender_req.setText(""));
-                    timer.cancel();
-                }
-            }, 3500);
+            submit.setStyle("-fx-border-color: red; -fx-background-color: #081F5C; -fx-text-fill: #e3ded3");
 
         } else {
 
-            // The preparedStatement is used for executing and in this block of codes we insert some data and execute it.
+            // In here as you can see we insert some data into the database.
             try  {
                 pts = conn.prepareStatement("INSERT INTO \"addInfo\" (\"Fullname\", \"Age\", \"Gender\", \"MobileNo\", \"Email\", \"Address\", \"Date\", \"Time\", \"Services\")\n" +
                         "VALUES (?,?,?,?,?,?,?,?,?)");
@@ -344,8 +329,23 @@ public class MAINPAGECONT implements Initializable {
                 pts.setString(8, (String) time.getSelectionModel().getSelectedItem());
                 pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
                 pts.executeUpdate();
-
                 ClearForm();
+                Platform.runLater(() -> {
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    alert.setTitle("INFORMATION");
+                    alert.setContentText("Successfully added");
+                    alert.showAndWait();
+                });
+
+                full_req.setText("");
+                age_req.setText("");
+                address_req.setText("");
+                mail_req.setText("");
+                mobile_req.setText("");
+                gender_req.setText("");
+                submit.setStyle("-fx-border-color: none; -fx-background-color: #081F5C; -fx-text-fill: #e3ded3");
+
+
 
                 pts.close();
                 showTable();
@@ -354,8 +354,26 @@ public class MAINPAGECONT implements Initializable {
                 e.printStackTrace();
             }
         }
+            updateTimeComboBox();
 
     }
+
+    private boolean isTimeSlotUnavailable(LocalDate selectedDate, String selectedTime) throws SQLException {
+        String query = "SELECT COUNT(*) FROM \"addInfo\" WHERE \"Date\" = ? AND \"Time\" = ?";
+        try (PreparedStatement checkStmt = conn.prepareStatement(query)) {
+            checkStmt.setDate(1, Date.valueOf(selectedDate));
+            checkStmt.setString(2, selectedTime);
+
+            ResultSet resultSet = checkStmt.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                return count > 0;
+            }
+        }
+        return false;
+    }
+
+
 
     // The clearform method as you may know it's for clearing the textfield and combo box after the execution of preparedStatement.
     public void ClearForm() {
