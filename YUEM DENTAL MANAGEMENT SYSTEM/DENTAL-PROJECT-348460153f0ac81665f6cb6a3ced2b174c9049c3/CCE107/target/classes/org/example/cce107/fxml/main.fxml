@@ -23,7 +23,7 @@
    <children>
       <VBox prefHeight="644.0" prefWidth="314.0">
          <children>
-            <AnchorPane prefHeight="711.0" prefWidth="314.0">
+            <AnchorPane fx:id="navbar" prefHeight="711.0" prefWidth="314.0">
                <children>
                   <ImageView fitHeight="644.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,20 +50,41 @@
                         <Font name="Palatino Linotype" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="home_btn" layoutX="111.0" layoutY="346.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="HOME">
+                  <Button fx:id="home_btn" layoutX="7.0" layoutY="345.0" mnemonicParsing="false" onAction="#switchForm" onMousePressed="#homeBTN" prefHeight="34.0" prefWidth="262.0" style="-fx-background-color: transparent;" styleClass="navBTN" stylesheets="@css/dental.css" text="HOME" textFill="WHITE">
                      <font>
                         <Font name="Palatino Linotype Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <Label text="🏠" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </graphic>
                   </Button>
-                  <Button fx:id="appoint_btn" layoutX="59.0" layoutY="401.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="ADD APPOINTMENT">
+                  <Button fx:id="appoint_btn" layoutX="6.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchForm" onMousePressed="#addAppBTN" prefHeight="34.0" prefWidth="271.0" style="-fx-background-color: transparent;" styleClass="navBTN" stylesheets="@css/dental.css" text="ADD APPOINTMENT" textFill="WHITE">
                      <font>
                         <Font name="Palatino Linotype Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <Label text="➕" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </graphic>
                   </Button>
-                  <Button fx:id="doctor_btn" layoutX="95.0" layoutY="456.0" mnemonicParsing="false" onAction="#switchForm" styleClass="btn" stylesheets="@css/dental.css" text="DOCTORS">
+                  <Button fx:id="doctor_btn" layoutX="2.0" layoutY="455.0" mnemonicParsing="false" onAction="#switchForm" onMousePressed="#doctorBTN" prefHeight="34.0" prefWidth="278.0" style="-fx-background-color: transparent;" styleClass="navBTN" stylesheets="@css/dental.css" text="DOCTORS" textFill="WHITE">
                      <font>
                         <Font name="Palatino Linotype Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <Label text="👨‍⚕️" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </graphic>
                   </Button>
                   <Label layoutX="22.0" layoutY="533.0" text="UM Matina Campus, Matina, Davao City" textFill="WHITE">
                      <font>
@@ -158,6 +179,11 @@
               </columns>
             </TableView>
             <Button layoutX="883.0" layoutY="607.0" mnemonicParsing="false" onAction="#deleteBTN" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px; -fx-border-color: #051643;" styleClass="delete" stylesheets="@css/dental.css" text="🗑 DELETE">
+               <font>
+                  <Font name="Bookish" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="786.0" layoutY="608.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px; -fx-border-color: #051643;" text="➕ UPDATE">
                <font>
                   <Font name="Bookish" size="15.0" />
                </font>
@@ -343,14 +369,10 @@
                   </ImageView>
                   <ComboBox fx:id="time" layoutX="88.0" layoutY="428.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Time" styleClass="selectbtn" stylesheets="@css/dental.css" />
                   <ComboBox fx:id="services" layoutX="88.0" layoutY="512.0" onAction="#select_services" prefHeight="31.0" prefWidth="310.0" promptText="Select Service" styleClass="selectbtn" stylesheets="@css/dental.css" />
-                  <TextField layoutX="88.0" layoutY="554.0" prefHeight="31.0" prefWidth="310.0" promptText="Other Services:">
-                     <font>
-                        <Font name="Palatino Linotype" size="14.0" />
-                     </font>
-                  </TextField>
+                  <TextField fx:id="otherservice" layoutX="90.0" layoutY="560.0" prefHeight="34.0" prefWidth="310.0" />
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="doc_form" layoutX="282.0" prefHeight="645.0" prefWidth="987.0" style="-fx-background-color: #37A1C3;" visible="false">
+      <AnchorPane fx:id="doc_form" layoutX="281.0" layoutY="-6.0" prefHeight="645.0" prefWidth="987.0" style="-fx-background-color: #37A1C3;" visible="false">
          <children>
             <AnchorPane layoutX="-32.0" prefHeight="643.0" prefWidth="1017.0">
                <children>

@@ -1,5 +1,6 @@
 package org.example.cce107;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -9,6 +10,8 @@ import java.time.chrono.Chronology;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.LocalDateTime;
+
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.application.Platform;
@@ -24,10 +27,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import java.sql.*;
 
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.controlsfx.control.action.Action;
 
 public class MAINPAGECONT implements Initializable {
@@ -142,7 +147,8 @@ public class MAINPAGECONT implements Initializable {
     private TextField otherservice;
 
 
-
+    private ArrayList<String> listdate = new ArrayList<>();
+    private ArrayList<String> listtime = new ArrayList<>();
     private ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
 
     private ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
@@ -153,12 +159,10 @@ public class MAINPAGECONT implements Initializable {
 
     @FXML
     void select_time(ActionEvent event) throws SQLException {
-
         LocalDate selectedDate = tf_date.getValue();
 
         if (selectedDate != null) {
             String selectedTime = (String) time.getSelectionModel().getSelectedItem();
-
 
             try {
                 if (isTimeSlotUnavailable(selectedDate, selectedTime)) {
@@ -181,6 +185,20 @@ public class MAINPAGECONT implements Initializable {
     }
 
 
+    @FXML
+    void doctorBTN (MouseEvent event) {
+    }
+
+    @FXML
+    void homeBTN(MouseEvent event) {
+    }
+
+    @FXML
+    void addAppBTN(MouseEvent event) {
+    }
+
+    @FXML
+    private AnchorPane navbar;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -188,7 +206,29 @@ public class MAINPAGECONT implements Initializable {
         services.setItems(list1);
         alert = new Alert(Alert.AlertType.INFORMATION);
 
+        home_btn.setOnMouseClicked(event -> {
+            TranslateTransition buttons = new TranslateTransition();
+            buttons.setDuration(Duration.seconds(0.4));
 
+            buttons.setToX(0);
+            buttons.play();
+        });
+
+        appoint_btn.setOnMouseClicked(event -> {
+            TranslateTransition buttons = new TranslateTransition();
+            buttons.setDuration(Duration.seconds(0.4));
+
+            buttons.setToX(0);
+            buttons.play();
+        });
+
+        doctor_btn.setOnMouseClicked(event -> {
+            TranslateTransition buttons = new TranslateTransition();
+            buttons.setDuration(Duration.seconds(0.4));
+
+            buttons.setToX(0);
+            buttons.play();
+        });
 
         try {
             showTable();
@@ -314,7 +354,7 @@ public class MAINPAGECONT implements Initializable {
 
         } else {
 
-            // In here as you can see we insert some data into the database.
+            // In here as you can see we store some data into the database.
             try  {
                 pts = conn.prepareStatement("INSERT INTO \"addInfo\" (\"Fullname\", \"Age\", \"Gender\", \"MobileNo\", \"Email\", \"Address\", \"Date\", \"Time\", \"Services\")\n" +
                         "VALUES (?,?,?,?,?,?,?,?,?)");
@@ -330,12 +370,12 @@ public class MAINPAGECONT implements Initializable {
                 pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
                 pts.executeUpdate();
                 ClearForm();
-                Platform.runLater(() -> {
-                    alert.setAlertType(Alert.AlertType.INFORMATION);
-                    alert.setTitle("INFORMATION");
-                    alert.setContentText("Successfully added");
-                    alert.showAndWait();
-                });
+
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                alert.setTitle("INFORMATION");
+                alert.setHeaderText(null);
+                alert.setContentText("Successfully added");
+                alert.show();
 
                 full_req.setText("");
                 age_req.setText("");
@@ -354,7 +394,7 @@ public class MAINPAGECONT implements Initializable {
                 e.printStackTrace();
             }
         }
-            updateTimeComboBox();
+
 
     }
 
@@ -449,10 +489,20 @@ public class MAINPAGECONT implements Initializable {
             total.setText(String.valueOf(appoint_table.getItems().size()));
             pts.executeUpdate();
 
+            alert.setAlertType(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("CONFIRM");
+            alert.setHeaderText(null);
+            alert.setContentText("Successfully Deleted!");
+            Optional<ButtonType> click = alert.showAndWait();
+
             showTable();
         }catch (SQLException event) {
             event.printStackTrace();
         }
     }
 
+    public void update() {
+
+
+    }
 }

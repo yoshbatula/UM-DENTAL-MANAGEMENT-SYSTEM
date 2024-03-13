@@ -2,22 +2,27 @@ package org.example.cce107;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.Duration;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.w3c.dom.Text;
 
 public class HelloController {
     @FXML
@@ -40,6 +45,8 @@ public class HelloController {
     @FXML
     private Label userid;
 
+    @FXML
+    private AnchorPane loginpane;
 
 
     public void login(ActionEvent event) {
@@ -80,20 +87,23 @@ public class HelloController {
 
         } if (username.equals(user.getText()) && password.equals(pass.getText())) {
 
-            login.getScene().getWindow().hide();
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), loginpane);
+            fadeTransition.setFromValue(1);
+            fadeTransition.setToValue(0);
+            fadeTransition.setOnFinished(fadeEvent -> {
 
-            Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("fxml/main.fxml"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("fxml/main.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            });
+            fadeTransition.play();
         } else {
 
             label_wrong.setText("Incorrect username / password.");
@@ -111,8 +121,5 @@ public class HelloController {
         }
 
     }
-
-
-
 
 }
