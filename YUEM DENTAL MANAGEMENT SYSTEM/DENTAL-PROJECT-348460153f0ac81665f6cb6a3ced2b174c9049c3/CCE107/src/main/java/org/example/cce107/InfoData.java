@@ -16,7 +16,9 @@ public class InfoData {
    private String time;
    private String services;
 
-    public InfoData(String fullname,Integer age,String gender,String mobileno,String email,Date date,String time,String services) {
+   private String address;
+
+    public InfoData(String fullname,Integer age,String gender,String mobileno,String email,Date date,String time,String services, String address) {
         this.fullname = fullname;
         this.age = age;
         this.gender = gender;
@@ -25,6 +27,7 @@ public class InfoData {
         this.date = date;
         this.time = time;
         this.services = services;
+        this.address = address;
     }
 
     public String getFullname() {
@@ -52,4 +55,7 @@ public class InfoData {
        return services;
    }
 
+    public String getAddress() {
+        return address;
+    }
 }

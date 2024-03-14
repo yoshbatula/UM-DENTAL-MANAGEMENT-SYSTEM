@@ -1,44 +1,9 @@
-.form1 {
-    -fx-background-color: #081F5C;
-}
-.add_form {
-    -fx-background-color: #D0E3FF;
-}
-
-.add_app {
-    -fx-background-color: #DBD3CA;
-}
-
-.doc_form {
-    -fx-backgroud-color: black;
-}
-
-.side_navigate {
-    -fx-arc-width: 144px;
-    -fx-arc-height: 26px;
-}
-
-.btn {
-    -fx-border-radius: 9px;
-    -fx-arc-height: 36px;
-    -fx-arc-width: 167px;
-}
-
-.selectbtn {
-    -fx-font-family: "Palatino Linotype";
-    -fx-font-size: 14;
-    -fx-background-color: #ece9e7;
-    -fx-border-color: #c5c5c5;
-    -fx-prompt-text-fill: black;
-}
-.selectbtn2 {
-    -fx-font-family: "Palatino Linotype";
-    -fx-font-size: 14;
-    -fx-prompt-text-fill: black;
-    -fx-background-color: #c5c5c5;
+.navBTN:hover {
+    -fx-background-color-color: #146886;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 0px 3px;
 
 }
 
-.delete {
-    -fx-background-color: #F7F2EB;
-}
+
+

@@ -87,9 +87,11 @@ public class HelloController {
 
         } if (username.equals(user.getText()) && password.equals(pass.getText())) {
 
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), loginpane);
+            FadeTransition fadeTransition = new FadeTransition();
+            fadeTransition.setNode(loginpane);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
+            fadeTransition.setAutoReverse(true);
             fadeTransition.setOnFinished(fadeEvent -> {
 
                 Parent root = null;

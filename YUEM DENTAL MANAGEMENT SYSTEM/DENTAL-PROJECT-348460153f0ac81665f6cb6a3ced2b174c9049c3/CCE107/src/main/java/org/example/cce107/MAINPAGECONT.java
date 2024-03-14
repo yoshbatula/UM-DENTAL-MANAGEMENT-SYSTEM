@@ -144,11 +144,16 @@ public class MAINPAGECONT implements Initializable {
     private Button b1;
 
     @FXML
+    private Button updateBTN;
+
+    @FXML
+    private Button update2;
+    @FXML
+    private TextField adressTF;
+
+    @FXML
     private TextField otherservice;
 
-
-    private ArrayList<String> listdate = new ArrayList<>();
-    private ArrayList<String> listtime = new ArrayList<>();
     private ObservableList<String> list = FXCollections.observableArrayList("8:00am - 9:00am", "9:00am - 10:00am", "10:00am - 11:00am", "11:00am - 12:00am", "1:00pm - 2:00pm", "2:00pm - 3:00pm", "3:00pm - 4:00pm", "4:00pm  - 5:00pm");
 
     private ObservableList<String> list1 = FXCollections.observableArrayList("Tooth Extractions", "Teeth Whitening", "Dental Sealants", "Root Canal Therapy", "Dentures", "Teeth Cleanings", "Dental Veneers", "Invisalign", "Cosmetic Fillings", "Bridgework", "Dental Crowns", "Dental Bonding");
@@ -200,10 +205,9 @@ public class MAINPAGECONT implements Initializable {
     @FXML
     private AnchorPane navbar;
 
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        time.setItems(list);
         services.setItems(list1);
+
         alert = new Alert(Alert.AlertType.INFORMATION);
 
         home_btn.setOnMouseClicked(event -> {
@@ -340,8 +344,7 @@ public class MAINPAGECONT implements Initializable {
             submit.setStyle("-fx-border-color: red; -fx-background-color: #081F5C; -fx-text-fill: #e3ded3");
 
         }
-        if (address_tf.getText().isEmpty() || email_tf.getText().isEmpty()) {
-            address_req.setText("This is required");
+        if (email_tf.getText().isEmpty()) {
             mail_req.setText("This is required");
 
             submit.setStyle("-fx-border-color: red; -fx-background-color: #081F5C; -fx-text-fill: #e3ded3");
@@ -364,7 +367,7 @@ public class MAINPAGECONT implements Initializable {
                 pts.setString(3, gender_tf.getText());
                 pts.setString(4, mobile_tf.getText());
                 pts.setString(5, email_tf.getText());
-                pts.setString(6, address_tf.getText());
+                pts.setString(6, adressTF.getText());
                 pts.setDate(7, Date.valueOf(tf_date.getValue()));
                 pts.setString(8, (String) time.getSelectionModel().getSelectedItem());
                 pts.setString(9, (String) services.getSelectionModel().getSelectedItem());
@@ -422,7 +425,7 @@ public class MAINPAGECONT implements Initializable {
         gender_tf.setText("");
         mobile_tf.setText("");
         email_tf.setText("");
-        address_tf.setText("");
+        adressTF.setText("");
         tf_date.setValue(null);
         time.getSelectionModel().clearSelection();
         services.getSelectionModel().clearSelection();
@@ -448,7 +451,8 @@ public class MAINPAGECONT implements Initializable {
                         result.getString("email"),
                         result.getDate("date"),
                         result.getString("time"),
-                        result.getString("services")
+                        result.getString("services"),
+                        result.getString("address")
                 );
                         list.add(data);
             }
@@ -501,8 +505,96 @@ public class MAINPAGECONT implements Initializable {
         }
     }
 
-    public void update() {
+    public void setUpdateBTN(ActionEvent event) throws SQLException {
+        if (event.getSource() == updateBTN) {
+
+            home_form.setVisible(false);
+            appoint_form.setVisible(true);
+            doc_form.setVisible(false);
 
 
+            InfoData selectedItem = appoint_table.getSelectionModel().getSelectedItem();
+
+            if (selectedItem != null) {
+                full_tf.setText(selectedItem.getFullname());
+                age_tf.setText(String.valueOf(selectedItem.getAge()));
+                gender_tf.setText(selectedItem.getGender());
+                mobile_tf.setText(selectedItem.getMobileno());
+                email_tf.setText(selectedItem.getEmail());
+                adressTF.setText(selectedItem.getAddress());
+                tf_date.setValue(selectedItem.getDate().toLocalDate());
+                time.getSelectionModel().select(selectedItem.getTime());
+                services.getSelectionModel().select(selectedItem.getServices());
+            }
+
+        } else if (event.getSource() == update2) {
+            String fullname = full_tf.getText();
+            String ageString = age_tf.getText();
+
+
+            if (ageString.isEmpty()) {
+                return;
+            }
+
+            int age;
+            try {
+                age = Integer.parseInt(ageString);
+            } catch (NumberFormatException e) {
+
+                return;
+            }
+
+            String gender = gender_tf.getText();
+            String mobileNo = mobile_tf.getText();
+            String email = email_tf.getText();
+            String address = adressTF.getText();
+            LocalDate date = tf_date.getValue();
+            String timeSlot = time.getSelectionModel().getSelectedItem();
+            String service = String.valueOf(services.getSelectionModel().getSelectedItem());
+
+            String sql = "UPDATE \"addInfo\"\n" +
+                    "SET \"Fullname\"=?, \"Age\"=?, \"Gender\"=?, \"MobileNo\"=?, \"Email\"=?, \"Address\"=?, \"Date\"=?, \"Time\"=?, \"Services\"=?\n" +
+                    "WHERE \"Fullname\"=?";
+
+            try {
+                pts = conn.prepareStatement(sql);
+
+                pts.setString(1, fullname);
+                pts.setInt(2, age);
+                pts.setString(3, gender);
+                pts.setString(4, mobileNo);
+                pts.setString(5, email);
+                pts.setString(6, address);
+                pts.setDate(7, Date.valueOf(date));
+                pts.setString(8, timeSlot);
+                pts.setString(9, service);
+
+                pts.setString(10, fullname);
+
+                int rowsUpdated = pts.executeUpdate();
+                if (rowsUpdated > 0) {
+                    Platform.runLater(() -> {
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Information");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Update Successful");
+                        alert.show();
+                    });
+                    ClearForm();
+                } else {
+                    Platform.runLater(() -> {
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.setTitle("ERROR");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Update Failed");
+                        alert.show();
+                    });
+                }
+                pts.close();
+                showTable();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
