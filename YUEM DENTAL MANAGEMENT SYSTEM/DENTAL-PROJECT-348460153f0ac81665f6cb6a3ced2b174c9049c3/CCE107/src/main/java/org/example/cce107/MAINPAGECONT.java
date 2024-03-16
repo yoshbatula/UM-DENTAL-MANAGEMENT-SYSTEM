@@ -531,7 +531,6 @@ public class MAINPAGECONT implements Initializable {
             String fullname = full_tf.getText();
             String ageString = age_tf.getText();
 
-
             if (ageString.isEmpty()) {
                 return;
             }

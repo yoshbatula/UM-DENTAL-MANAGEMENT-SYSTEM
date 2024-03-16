@@ -183,7 +183,7 @@
                   <Font name="Bookish" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="786.0" layoutY="608.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px; -fx-border-color: #051643;" text="➕ UPDATE">
+            <Button fx:id="updateBTN" layoutX="786.0" layoutY="608.0" mnemonicParsing="false" onAction="#setUpdateBTN" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #F7F2EB; -fx-border-radius: 9px; -fx-border-color: #051643;" text="➕ UPDATE">
                <font>
                   <Font name="Bookish" size="15.0" />
                </font>
@@ -337,21 +337,12 @@
                         <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="address_tf" layoutX="502.0" layoutY="476.0" prefHeight="34.0" prefWidth="261.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font></TextField>
-                  <Label layoutX="501.0" layoutY="445.0" text="Address:">
-                     <font>
-                        <Font name="Palatino Linotype" size="19.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="address_req" layoutX="510.0" layoutY="512.0" prefHeight="22.0" prefWidth="128.0" textFill="RED">
+                  <Label fx:id="address_req" layoutX="720.0" layoutY="424.0" prefHeight="22.0" prefWidth="128.0" textFill="RED">
                      <font>
                         <Font name="Palatino Linotype" size="10.0" />
                      </font>
                   </Label>
-                  <Button fx:id="submit" layoutX="811.0" layoutY="472.0" mnemonicParsing="false" onAction="#personalInfo" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #081F5C;" text="Submit" textFill="#e3ded3">
+                  <Button fx:id="submit" layoutX="713.0" layoutY="522.0" mnemonicParsing="false" onAction="#personalInfo" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #081F5C;" text="Submit" textFill="#e3ded3">
                      <font>
                         <Font name="Palatino Linotype Bold" size="21.0" />
                      </font>
@@ -369,7 +360,21 @@
                   </ImageView>
                   <ComboBox fx:id="time" layoutX="88.0" layoutY="428.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Time" styleClass="selectbtn" stylesheets="@css/dental.css" />
                   <ComboBox fx:id="services" layoutX="88.0" layoutY="512.0" onAction="#select_services" prefHeight="31.0" prefWidth="310.0" promptText="Select Service" styleClass="selectbtn" stylesheets="@css/dental.css" />
-                  <TextField fx:id="otherservice" layoutX="90.0" layoutY="560.0" prefHeight="34.0" prefWidth="310.0" />
+                  <Label layoutX="500.0" layoutY="434.0" text="Address">
+                     <font>
+                        <Font name="Palatino Linotype" size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="adressTF" layoutX="500.0" layoutY="463.0" prefHeight="34.0" prefWidth="189.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="update2" layoutX="843.0" layoutY="522.0" mnemonicParsing="false" onAction="#setUpdateBTN" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #081F5C;" text="Update" textFill="#e3ded3">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="21.0" />
+                     </font>
+                  </Button>
                </children></AnchorPane>
          </children></AnchorPane>
       <AnchorPane fx:id="doc_form" layoutX="281.0" layoutY="-6.0" prefHeight="645.0" prefWidth="987.0" style="-fx-background-color: #37A1C3;" visible="false">
