@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -215,28 +214,18 @@
                         <Font name="Palatino Linotype Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="51.0" layoutY="223.0" text="I am requesting for:">
-                     <font>
-                        <Font name="Palatino Linotype" size="17.0" />
-                     </font>
-                  </Label>
-                  <RadioButton layoutX="86.0" layoutY="264.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="314.0" text="Clinic Visit Appointment (visit to clinic)">
-                     <font>
-                        <Font name="Palatino Linotype" size="16.0" />
-                     </font>
-                  </RadioButton>
-                  <Label layoutX="62.0" layoutY="310.0" text="Appointment date:">
+                  <Label layoutX="62.0" layoutY="235.0" text="Appointment date:">
                      <font>
                         <Font name="Palatino Linotype" size="20.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="tf_date" layoutX="88.0" layoutY="345.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Date" showWeekNumbers="true" styleClass="selectbtn2" stylesheets="@css/dental.css" />
-                  <Label layoutX="59.0" layoutY="395.0" text="Appointment time:">
+                  <DatePicker fx:id="tf_date" layoutX="57.0" layoutY="269.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Date" showWeekNumbers="true" styleClass="selectbtn2" stylesheets="@css/dental.css" />
+                  <Label layoutX="61.0" layoutY="329.0" text="Appointment time:">
                      <font>
                         <Font name="Palatino Linotype" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="62.0" layoutY="480.0" text="Offered Services:">
+                  <Label layoutX="61.0" layoutY="422.0" text="Offered Services:">
                      <font>
                         <Font name="Palatino Linotype" size="20.0" />
                      </font>
@@ -358,8 +347,8 @@
                         <Image url="@images/LOGO%20(2).png" />
                      </image>
                   </ImageView>
-                  <ComboBox fx:id="time" layoutX="88.0" layoutY="428.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Time" styleClass="selectbtn" stylesheets="@css/dental.css" />
-                  <ComboBox fx:id="services" layoutX="88.0" layoutY="512.0" onAction="#select_services" prefHeight="31.0" prefWidth="310.0" promptText="Select Service" styleClass="selectbtn" stylesheets="@css/dental.css" />
+                  <ComboBox fx:id="time" layoutX="57.0" layoutY="373.0" onAction="#select_time" prefHeight="32.0" prefWidth="310.0" promptText="Select Time" styleClass="selectbtn" stylesheets="@css/dental.css" />
+                  <ComboBox fx:id="services" layoutX="56.0" layoutY="464.0" onAction="#select_services" prefHeight="31.0" prefWidth="310.0" promptText="Select Service" styleClass="selectbtn" stylesheets="@css/dental.css" />
                   <Label layoutX="500.0" layoutY="434.0" text="Address">
                      <font>
                         <Font name="Palatino Linotype" size="19.0" />
@@ -381,7 +370,7 @@
          <children>
             <AnchorPane layoutX="-32.0" prefHeight="643.0" prefWidth="1017.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#37a1c2" height="645.0" layoutX="32.0" stroke="#37a1c2" strokeType="INSIDE" width="985.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#37a1c2" height="656.0" layoutX="32.0" stroke="#37a1c2" strokeType="INSIDE" width="985.0" />
                   <ImageView fx:id="imageV" fitHeight="645.0" fitWidth="987.0" layoutX="32.0" layoutY="-2.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/yosh.png" />
